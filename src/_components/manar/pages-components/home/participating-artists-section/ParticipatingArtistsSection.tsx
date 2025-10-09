@@ -18,7 +18,7 @@ export default function ParticipatingArtistsSection({ data }: { data: any }) {
   const { mode } = useThemeStore()
   return (
     <Section>
-      <div className="flex justify-between mb-8">
+      <div className="flex flex-wrap justify-between mb-8">
         <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
         <div className="flex gap-2 items-center">
           <Button as={Link} variant="bordered" size="md" color="primary" href={data?.button?.url} className="rounded-full text-base font-semibold">

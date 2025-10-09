@@ -4,7 +4,7 @@ import { extendVariants, Button } from '@heroui/react'
 export const ManarButton = extendVariants(Button, {
   variants: {
     color: {
-      primaryOutline: 'text-[#1d136a] bg-white rounded-full border-[1px] border-[#1d136a] font-semibold',
+      primaryOutline: 'text-[#1d136a] bg-white rounded-full border-[2px] border-[#1d136a] font-semibold',
       primary: 'text-white bg-[#1d136a] rounded-full font-semibold',
     },
     isDisabled: {

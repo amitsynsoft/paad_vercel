@@ -20,7 +20,7 @@ export default function HeaderMenu({ setOpen, open, headerData }: { setOpen: (op
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-10">
           <div className="flex flex-col gap-4">
             {headerData?.menuItems?.map((item, index: number) => (
-              <Link key={index} href={item.url} className="text-3xl sm:text-4xl xl:text-3xl 2xl:text-5xl font-semibold text-foreground hover:underline transition-all" onClick={() => setOpen(false)}>
+              <Link key={index} href={item.url} className="text-lg font-semibold text-foreground hover:underline transition-all" onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             ))}

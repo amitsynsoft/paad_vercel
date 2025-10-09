@@ -4,7 +4,7 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker, OverlayView } from '@react-google-maps/api'
 
 import { useLocale } from 'next-intl'
-import { locationData } from './location.data'
+// import { locationData } from './location.data'
 import { createImageFullUrl } from '@/utils'
 import { X } from 'lucide-react'
 import ImageGuard from '../_ui/image-guard/ImageGuard.component'
@@ -12,12 +12,12 @@ import { ManarButton } from '../_ui/buttons/ManarButton'
 
 const containerStyle = {
   width: '100%',
-  height: '480px',
+  height: '800px',
 }
 
 const defaultCenter = { lat: 24.4539, lng: 54.3773 }
 
-export default function ExploreMap({ isButtonFilter = true }: { isButtonFilter?: boolean }) {
+export default function ExploreMap({ isButtonFilter = true, locationData }: { isButtonFilter?: boolean; locationData: any }) {
   const locale = useLocale()
   const [selectedCity, setSelectedCity] = useState('All')
   const [selected, setSelected] = useState<any | null>(null)
@@ -27,10 +27,10 @@ export default function ExploreMap({ isButtonFilter = true }: { isButtonFilter?:
   const mapRef = useRef<google.maps.Map | null>(null)
 
   // Cities + All
-  const cities = useMemo(() => ['All', ...locationData.cities.map((city) => city.name)], [])
+  const cities = useMemo(() => ['All', ...locationData.cities.map((city: any) => city.name)], [])
 
   // All locations
-  const allLocations = useMemo(() => locationData.cities.flatMap((city) => city.locations), [])
+  const allLocations = useMemo(() => locationData.cities.flatMap((city: any) => city.locations), [])
 
   // Location types (for future checkbox use)
   // const locationTypes = useMemo(() => {
@@ -41,7 +41,7 @@ export default function ExploreMap({ isButtonFilter = true }: { isButtonFilter?:
   // Filter locations based on selected city
   const filteredLocations = useMemo(() => {
     if (selectedCity === 'All') return allLocations
-    const cityData = locationData.cities.find((c) => c.name === selectedCity)
+    const cityData = locationData.cities.find((c: any) => c.name === selectedCity)
     return cityData ? cityData.locations : []
   }, [selectedCity, allLocations])
 
@@ -51,14 +51,14 @@ export default function ExploreMap({ isButtonFilter = true }: { isButtonFilter?:
 
     if (selectedCity === 'All') {
       const bounds = new window.google.maps.LatLngBounds()
-      filteredLocations.forEach((loc) => {
+      filteredLocations.forEach((loc: any) => {
         const lat = parseFloat(loc.location.lat)
         const lng = parseFloat(loc.location.lon)
         if (!isNaN(lat) && !isNaN(lng)) bounds.extend({ lat, lng })
       })
       mapRef.current.fitBounds(bounds)
     } else {
-      const cityData = locationData.cities.find((c) => c.name === selectedCity)
+      const cityData = locationData.cities.find((c: any) => c.name === selectedCity)
       if (cityData) {
         const lat = parseFloat(cityData.lat)
         const lng = parseFloat(cityData.lon)
@@ -107,10 +107,9 @@ export default function ExploreMap({ isButtonFilter = true }: { isButtonFilter?:
           options={{ mapTypeControl: false }}
           onLoad={(map) => {
             mapRef.current = map
-            // page load pe "All" ke liye fit bounds
             if (selectedCity === 'All') {
               const bounds = new window.google.maps.LatLngBounds()
-              allLocations.forEach((loc) => {
+              allLocations.forEach((loc: any) => {
                 const lat = parseFloat(loc.location.lat)
                 const lng = parseFloat(loc.location.lon)
                 if (!isNaN(lat) && !isNaN(lng)) bounds.extend({ lat, lng })
@@ -119,7 +118,7 @@ export default function ExploreMap({ isButtonFilter = true }: { isButtonFilter?:
             }
           }}
         >
-          {filteredLocations.map((loc) => {
+          {filteredLocations.map((loc: any) => {
             const lat = parseFloat(loc.location.lat)
             const lng = parseFloat(loc.location.lon)
             if (isNaN(lat) || isNaN(lng)) return null
@@ -154,10 +153,9 @@ export default function ExploreMap({ isButtonFilter = true }: { isButtonFilter?:
               >
                 {selected && (
                   <OverlayView position={{ lat: parseFloat(selected?.location?.lat), lng: parseFloat(selected?.location?.lon) }} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-                    <div className="bg-primary text-white p-4 w-64 flex flex-col gap-4 -translate-x-1/2">
-                      <div className="flex justify-between items-start">
-                        <h3 className="font-bold text-lg">{selected?.name}</h3>
-
+                    <div className="bg-primary text-white p-4 w-[275px] flex flex-col gap-4 -translate-x-1/2">
+                      <div className="flex justify-between items-start gap-2">
+                        <h3 className="font-bold text-base">{selected?.name}</h3>
                         <div onClick={() => setSelected(null)} className="border border-white rounded-full p-1 cursor-pointer">
                           <X height={16} width={16} />
                         </div>

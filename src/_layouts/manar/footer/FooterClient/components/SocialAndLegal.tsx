@@ -27,13 +27,7 @@ export default function SocialAndLegal({ secondaryLinks, socialLinks, copyRight 
             const url = socialLinks?.[social.key] || '#'
             return (
               <Link key={social.key} href={url} target="_blank" rel="noopener noreferrer" className="relative w-8 h-8 rounded-full flex items-center justify-center bg-primary hover:!bg-primary">
-                <Image
-                  src={mode === 'dark' ? social.imgDark : social.imgLight}
-                  alt={social.key}
-                  width={social.key === 'facebook' ? 12 : 18}
-                  height={18}
-                  className="object-contain max-w-[20px] mx-auto"
-                />
+                <Image src={mode === 'dark' ? social.imgDark : social.imgLight} alt={social.key} width={social.key === 'facebook' ? 10 : 18} height={18} className="object-contain max-w-[20px] mx-auto" />
               </Link>
             )
           })}

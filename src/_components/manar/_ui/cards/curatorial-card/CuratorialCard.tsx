@@ -11,10 +11,10 @@ interface curatorialData {
 
 export default function CuratorialCard({ curatorialData }: { curatorialData: curatorialData }) {
   return (
-    <div className="flex flex-col items-start bg-transparent hover:bg-danger transition-all cursor-pointer text-foreground hover:text-hovertext">
+    <div className="flex flex-col items-start bg-transparent hover:bg-primary transition-all cursor-pointer text-foreground hover:text-background">
       {/* Image */}
       <div className="p-4 relative w-full h-100">
-        <ImageGuard src={curatorialData?.image?.url} alt={curatorialData?.name} fill className="object-cover" />
+        <ImageGuard src={curatorialData?.image?.url} alt={curatorialData?.name} fill className="object-cover object-top" />
       </div>
 
       {/* Title */}

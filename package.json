@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "postinstall": "npm rebuild lightningcss || true",
+    "start": "next start -p $PORT",
     "start:standalone": "node .next/standalone/server.js",
     "deploy": "pm2 startOrRestart ecosystem.config.js",
     "lint": "next lint",

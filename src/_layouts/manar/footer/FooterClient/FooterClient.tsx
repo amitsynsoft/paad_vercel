@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import SocialAndLegal from './components/SocialAndLegal'
 import { createImageFullUrl } from '@/utils'
 import { FooterDTO } from '@/dto/manar/Footer.dto'
+import Section from '@/_components/manar/_ui/section/Section'
 
 // TODO: remove any
 const FooterClient = ({ footerData }: { footerData: FooterDTO }) => {
@@ -13,7 +14,7 @@ const FooterClient = ({ footerData }: { footerData: FooterDTO }) => {
 
   return (
     <footer className="w-full bg-background">
-      <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <Section className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
         {/* Left Navigation */}
         <Navigation menuItems={footerData?.menuItems} partners={footerData?.partners} />
 
@@ -21,10 +22,10 @@ const FooterClient = ({ footerData }: { footerData: FooterDTO }) => {
         <SocialAndLegal secondaryLinks={footerData?.secondaryLinks} socialLinks={footerData?.socialLinks} copyRight={footerData?.copyRight} />
 
         {/* Right Branding */}
-        <div className="flex flex-col items-end justify-end text-right space-y-2">
+        <div className="flex flex-col md:items-end md:justify-end space-y-2">
           <Image src={mode === 'dark' ? createImageFullUrl(footerData?.footerLogo?.[0]?.dark?.src ?? '') : createImageFullUrl(footerData?.footerLogo?.[0]?.light?.src ?? '')} alt="Logo" width={260} height={260} />
         </div>
-      </div>
+      </Section>
     </footer>
   )
 }
