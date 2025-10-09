@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+/* Note: You may need to change the path to fit your project structure */
+@config "../../tailwind.config.js";
+
+@theme inline {
+  --font-abcdiatype: var(--font-abcdiatype);
+  --text-sm: 15px;
+  --text-sm--line-height: 1.2;
+  --text-base: 20px;
+  --text-base--line-height: 1.2;
+  --text-lg: 40px;
+  --text-lg--line-height: 1.3;
+}
