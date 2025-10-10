@@ -84,7 +84,13 @@ export default function HeaderLayout({ setOpen, open, headerData }: { setOpen: (
         {/* Right Section */}
         <NavbarContent justify="end" className="gap-1">
           <NavbarItem className="hidden sm:block">
-            <Link href={headerData?.headerLinks?.url || '#'} className="font-semibold text-base text-foreground dark:text-white hover:opacity-80 transition-opacity">
+            <Link
+              href={'#'}
+              // Todo: remove this hard code url
+              // href={headerData?.headerLinks?.url || '#'}
+
+              className="font-semibold text-base text-foreground dark:text-white hover:opacity-80 transition-opacity"
+            >
               {headerData?.headerLinks?.label}
             </Link>
           </NavbarItem>

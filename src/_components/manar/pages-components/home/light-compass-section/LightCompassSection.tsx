@@ -16,7 +16,13 @@ export default function LightCompassSection({ data }: { data: any }) {
         </div>
 
         <span className="text-foreground underline font-bold text-base">
-          <Link href={data?.link?.url || ''}>{data?.link?.label || ''}</Link>
+          <Link
+            // Todo: remove this hard code url
+            // href={data?.link?.url || ''}
+            href={'#'}
+          >
+            {data?.link?.label || ''}
+          </Link>
         </span>
       </div>
     </Section>
