@@ -14,7 +14,7 @@ export default function ExploreMapSection({ data }: { data: any }) {
 
   return (
     <section className="container py-16">
-      <div className="flex justify-between mb-8">
+      <div className="flex justify-between mb-8 px-4">
         <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
         <ManarButton
           as={Link}
