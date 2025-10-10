@@ -1,9 +1,10 @@
 'use client'
-import { Button } from '@heroui/react'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import Link from 'next/link'
+
 import ExploreMap from '@/_components/manar/Explore-map-artworks/ExploreArtworks'
 import { useExploreMapArtworkQuery } from '@/redux/services/auth.api'
-import Link from 'next/link'
+import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
 
 export default function ExploreMapSection({ data }: { data: any }) {
   const { data: mapData, isError } = useExploreMapArtworkQuery()
@@ -11,13 +12,17 @@ export default function ExploreMapSection({ data }: { data: any }) {
 
   return (
     <section className="container py-16">
-      <div className="flex flex-wrap justify-between mb-8">
-        {/* TODO: HardCoded */}
+      <div className="flex justify-between mb-8">
         <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
-        <Button as={Link} href={data?.button.label} variant="bordered" size="md" color="primary" className="rounded-full text-base font-semibold">
-          {/* TODO: HardCoded */}
+        <ManarButton
+          as={Link}
+          // Todo: remove this hard code url
+          // href={data?.button.label}
+          href="#"
+          color="primaryOutlineHover"
+        >
           {data?.button?.label}
-        </Button>
+        </ManarButton>
       </div>
 
       {mapData && <ExploreMap locationData={mapData} />}

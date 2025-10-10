@@ -26,6 +26,8 @@ export default function ExploreMap({ isButtonFilter = true, locationData }: { is
 
   const mapRef = useRef<google.maps.Map | null>(null)
 
+  console.log({ selected, URL: selected?.location?.artwork?.images?.[0]?.card?.url })
+
   // Cities + All
   const cities = useMemo(() => ['All', ...locationData.cities.map((city: any) => city.name)], [])
 
@@ -152,20 +154,27 @@ export default function ExploreMap({ isButtonFilter = true, locationData }: { is
                 onMouseOut={() => setHoveredMarkerId(null)}
               >
                 {selected && (
-                  <OverlayView position={{ lat: parseFloat(selected?.location?.lat), lng: parseFloat(selected?.location?.lon) }} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-                    <div className="bg-primary text-white p-4 w-[275px] flex flex-col gap-4 -translate-x-1/2">
+                  <OverlayView key={selected?.id} position={{ lat: parseFloat(selected?.location?.lat), lng: parseFloat(selected?.location?.lon) }} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
+                    <div className="bg-[#1d136a] text-white p-4 w-64 flex flex-col gap-4 -translate-x-1/2">
                       <div className="flex justify-between items-start gap-2">
                         <h3 className="font-bold text-base">{selected?.name}</h3>
                         <div onClick={() => setSelected(null)} className="border border-white rounded-full p-1 cursor-pointer">
                           <X height={16} width={16} />
                         </div>
                       </div>
-                      <div className="relative h-60 w-full">
-                        <ImageGuard src={selected?.image} alt="image" fill />
+                      <div className="relative h-[180px] w-full">
+                        <ImageGuard src={selected?.location?.artwork?.images?.[0]?.card?.url} alt="image" fill />
                       </div>
 
                       <div className="flex justify-start">
-                        <button className="text-medium text-white border-2 border-white rounded-full px-4 py-1 cursor-pointer">Directions</button>
+                        <a
+                          href={`https://www.google.com/maps/dir/?api=1&origin=my+location&destination=${selected?.location?.lat},${selected?.location?.lon}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-medium text-white border-2 border-white rounded-full px-4 py-1 cursor-pointer"
+                        >
+                          Directions
+                        </a>
                       </div>
                     </div>
                   </OverlayView>

@@ -22,7 +22,7 @@ export default function SocialAndLegal({ secondaryLinks, socialLinks, copyRight 
             { key: 'instagram', imgLight: '/images/instagram-white.svg', imgDark: '/images/instagram-primary.svg' },
             { key: 'facebook', imgLight: '/images/facebook-white.svg', imgDark: '/images/facebook-primary.svg' },
             { key: 'twitter', imgLight: '/images/x-white.svg', imgDark: '/images/x-primary.svg' },
-            { key: 'snapchat', imgLight: '/images/youtube-white.svg', imgDark: '/images/youtube-primary.svg' },
+            { key: 'youtube', imgLight: '/images/youtube-white.svg', imgDark: '/images/youtube-primary.svg' },
           ].map((social) => {
             const url = socialLinks?.[social.key] || '#'
             return (
@@ -34,7 +34,7 @@ export default function SocialAndLegal({ secondaryLinks, socialLinks, copyRight 
         </div>
       </div>
       <div>
-        <div className="text-base font-semibold text-foreground space-x-2">
+        <div className="text-base font-semibold text-foreground space-x-2 mb-2">
           {secondaryLinks?.map((item, index: number) => (
             <Link key={index} href={item?.url ?? '#'}>
               {item?.label || ''}

@@ -14,7 +14,7 @@ const FooterClient = ({ footerData }: { footerData: FooterDTO }) => {
 
   return (
     <footer className="w-full bg-background">
-      <Section className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
+      <Section className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
         {/* Left Navigation */}
         <Navigation menuItems={footerData?.menuItems} partners={footerData?.partners} />
 

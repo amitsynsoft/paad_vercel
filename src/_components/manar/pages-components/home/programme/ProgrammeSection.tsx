@@ -4,6 +4,8 @@ import React from 'react'
 import { Button } from '@heroui/react'
 import EventCard from '@/_components/manar/_ui/cards/event-card/EventCard'
 import Section from '@/_components/manar/_ui/section/Section'
+import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
+import Link from 'next/link'
 
 interface ProgrammeSectionProps {
   data?: {
@@ -39,13 +41,13 @@ export default function ProgrammeSection({ data }: ProgrammeSectionProps) {
     <Section>
       <div className="flex justify-between mb-8">
         <h2 className="text-lg text-foreground font-semibold">{data?.title || ''}</h2>
-        <Button as="a" variant="bordered" size="md" color="primary" href={data?.button?.url || '#'} className="rounded-full text-base font-semibold">
+        <ManarButton as={Link} color="primaryOutlineHover" href={data?.button?.url || '#'}>
           {data?.button?.label || ''}
-        </Button>
+        </ManarButton>
       </div>
 
       {events.length === 0 ? (
-        //  TODO: HardCoded
+        //  TODO: HardCoded need to update with an image placeholder
         <div className="text-center py-10 text-gray-500 text-lg">No events available</div>
       ) : (
         <div className="space-y-6">

@@ -11,6 +11,7 @@ import NextPreviousButton from '@/_components/manar/_ui/carousels/next-previous-
 import { useLocale } from 'next-intl'
 import ArtistCard from '@/_components/manar/_ui/cards/artist-card/ArtistCard'
 import { useThemeStore } from '@/zustund-store/useThemeMode.store'
+import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
 
 export default function ParticipatingArtistsSection({ data }: { data: any }) {
   const locale = useLocale()
@@ -21,9 +22,15 @@ export default function ParticipatingArtistsSection({ data }: { data: any }) {
       <div className="flex flex-wrap justify-between mb-8">
         <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
         <div className="flex gap-2 items-center">
-          <Button as={Link} variant="bordered" size="md" color="primary" href={data?.button?.url} className="rounded-full text-base font-semibold">
+          <ManarButton
+            as={Link}
+            color="primaryOutlineHover"
+            // Todo: remove this hard code url
+            // href={data?.button?.url}
+            href="#"
+          >
             {data?.button?.label}
-          </Button>
+          </ManarButton>
 
           <NextPreviousButton />
         </div>

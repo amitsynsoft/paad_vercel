@@ -4,8 +4,11 @@ import { extendVariants, Button } from '@heroui/react'
 export const ManarButton = extendVariants(Button, {
   variants: {
     color: {
-      primaryOutline: 'text-[#1d136a] bg-white rounded-full border-[2px] border-[#1d136a] font-semibold',
-      primary: 'text-white bg-[#1d136a] rounded-full font-semibold',
+      primaryOutline:
+        'text-[#1d136a] text-base bg-white rounded-full border-[2px] border-[#1d136a] font-semibold hover:bg-[#1d136a] hover:text-white hover:border-[#1d136a] !opacity-100 transition-all duration-300 ease-in-out',
+      primary: 'text-white text-base bg-[#1d136a] rounded-full font-semibold',
+      primaryOutlineHover:
+        'text-[#1d136a] text-base bg-white rounded-full border-[2px] border-[#1d136a] font-semibold hover:bg-[#1d136a] hover:text-white hover:border-[#ffffff] !opacity-100 transition-all duration-300 ease-in-out',
     },
     isDisabled: {
       true: 'bg-[#eaeaea] text-[#000] opacity-50 cursor-not-allowed',
@@ -24,14 +27,14 @@ export const ManarButton = extendVariants(Button, {
     {
       isDisabled: true,
       color: 'primaryOutline',
-      variant: 'bordered',
-      class: 'bg-[#1d136a]/80 opacity-100 border-[#1d136a]/80',
+    },
+    {
+      isDisabled: true,
+      color: 'primaryOutlineHover',
     },
     {
       isDisabled: true,
       color: 'primary',
-      variant: 'solid',
-      class: 'bg-[#1d136a]/80 opacity-100 border-[#1d136a]/80',
     },
   ],
 })

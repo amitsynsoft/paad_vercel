@@ -11,7 +11,6 @@ export default function CuratorialTeamSection({ data }: { data: any }) {
   return (
     <Section>
       <div className="flex justify-between mb-8">
-        {/* TODO: HardCoded */}
         <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4" dir={locale === 'ar' ? 'rtl' : 'ltr'}>

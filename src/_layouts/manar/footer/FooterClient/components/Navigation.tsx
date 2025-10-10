@@ -15,7 +15,12 @@ export default function Navigation({ menuItems, partners }: NavigationProps) {
       <div className="flex flex-col space-y-1.5 text-base text-foreground font-semibold">
         {menuItems &&
           menuItems?.slice(0, 6).map((item, index: number) => (
-            <Link key={index} href={item?.url ?? '#'}>
+            <Link
+              key={index}
+              // Todo: remove this hard code url
+              // href={item?.url ?? '#'}
+              href="#"
+            >
               {item?.label}
             </Link>
           ))}

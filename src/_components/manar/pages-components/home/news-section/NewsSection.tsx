@@ -12,6 +12,7 @@ import { useLocale } from 'next-intl'
 import NewsCard from '@/_components/manar/_ui/cards/news-card/NewsCard'
 import { useThemeStore } from '@/zustund-store/useThemeMode.store'
 import Link from 'next/link'
+import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
 
 // Todo : remove any and hardcoded
 export default function NewsSection({ data }: { data: any }) {
@@ -52,10 +53,9 @@ export default function NewsSection({ data }: { data: any }) {
       <div className="flex justify-between mb-4">
         <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
         <div className="flex gap-2 items-center">
-          {/* Todo: Hardcoded */}
-          <Button as={Link} variant="bordered" size="md" color="primary" href={data?.button?.url} className="rounded-full text-base font-semibold">
+          <ManarButton as={Link} color="primaryOutlineHover" href={data?.button?.url}>
             {data?.button?.label}
-          </Button>
+          </ManarButton>
 
           <NextPreviousButton />
         </div>
