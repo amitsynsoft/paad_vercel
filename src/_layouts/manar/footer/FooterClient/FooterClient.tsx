@@ -23,7 +23,7 @@ const FooterClient = ({ footerData }: { footerData: FooterDTO }) => {
 
         {/* Right Branding */}
         <div className="flex flex-col md:items-end md:justify-end space-y-2">
-          <Image src={mode === 'dark' ? createImageFullUrl(footerData?.footerLogo?.[0]?.dark?.src ?? '') : createImageFullUrl(footerData?.footerLogo?.[0]?.light?.src ?? '')} alt="Logo" width={260} height={260} />
+          <Image src={mode === 'dark' ? createImageFullUrl(footerData?.footerLogo?.[0]?.dark?.src ?? '') : createImageFullUrl(footerData?.footerLogo?.[0]?.light?.src ?? '')} alt="Logo" width={360} height={330} />
         </div>
       </Section>
     </footer>

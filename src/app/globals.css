@@ -20,3 +20,7 @@
 .sentence-case::first-letter {
   text-transform: uppercase;
 }
+
+header {
+  padding-inline: 0px !important;
+}

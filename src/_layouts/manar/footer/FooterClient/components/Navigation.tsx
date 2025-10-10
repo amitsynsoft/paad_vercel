@@ -11,7 +11,7 @@ export default function Navigation({ menuItems, partners }: NavigationProps) {
   const { mode } = useThemeStore()
 
   return (
-    <div className="flex flex-col space-y-10">
+    <div className="flex flex-col justify-between space-y-10">
       <div className="flex flex-col space-y-1.5 text-base text-foreground font-semibold">
         {menuItems &&
           menuItems?.slice(0, 6).map((item, index: number) => (

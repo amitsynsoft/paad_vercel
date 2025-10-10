@@ -34,7 +34,7 @@ export default function HeaderMenu({ setOpen, open, headerData }: { setOpen: (op
           </div>
 
           {/* Footer Logo */}
-          <div className="w-[200px] h-[200px] md:w-[320px] md:h-[320px] ml-auto relative">
+          <div className="w-[200px] h-[200px] md:w-[320px] md:h-[320px] relative">
             <Image
               src={mode === 'dark' ? createImageFullUrl(headerData?.headerLogo?.[0]?.dark?.src ?? '') : createImageFullUrl(headerData?.headerLogo?.[0]?.light?.src ?? '')}
               alt="Menu Logo"

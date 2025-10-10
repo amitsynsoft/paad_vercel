@@ -19,7 +19,7 @@ export default function QuickLinkBlock({ data, positions }: { data: any; positio
   console.log('quickliks', data)
   return (
     <Section>
-      <div className="relative w-full h-[300px] flex items-center justify-center">
+      <div className="relative w-full h-[400px] md:h-[300px] flex items-center justify-center">
         {navItems?.map((item: any, index: number) => (
           <Link
             key={index}
@@ -27,13 +27,13 @@ export default function QuickLinkBlock({ data, positions }: { data: any; positio
             // href={item?.href || ''}
             href={'#'}
             className={`absolute flex flex-col items-center gap-2 group hover:opacity-100 focus:opacity-100 active:opacity-100 !opacity-100
-                      ${item.position === 'plan' ? 'top-0 right-30' : ''}
-                      ${item.position === 'artworks' ? 'top-15 left-1/2 -translate-x-1/1' : ''}
-                      ${item.position === 'artists' ? 'top-45 left-1/4 -translate-x-1/1' : ''}
-                      ${item.position === 'about' ? 'top-45 right-1/4 -translate-x-1/1' : ''}
-                      ${item.position === 'programme' ? 'top-75 left-0 translate-x-1/1' : ''}
-                      ${item.position === 'contact' ? 'top-75 right-0 -translate-x-1/2' : ''}
-                      `}
+              ${item.position === 'plan' ? 'top-4 left-[60%] -translate-x-[50%] md:top-0 md:right-10 md:translate-x-0' : ''}
+              ${item.position === 'artists' ? 'top-[30%] left-[10%] md:top-15 md:left-[48%] md:-translate-x-1/2' : ''}
+              ${item.position === 'about' ? 'top-[65%] left-[10%] md:top-45 md:left-[25%] md:translate-x-0' : ''}
+              ${item.position === 'artworks' ? 'top-[30%] right-[10%] md:top-45 md:right-[35%] md:translate-x-0' : ''}
+              ${item.position === 'programme' ? 'top-[65%] right-[10%] md:top-75 md:left-[10%] md:right-auto md:translate-x-0' : ''}
+              ${item.position === 'contact' ? 'bottom-0 left-[50%] -translate-x-[50%] md:top-75 md:bottom-auto md:left-auto md:right-[10%] md:translate-x-0' : ''}
+            `}
           >
             {/* Todo:remove this hard code image */}
             <div className="transform transition-transform duration-300 group-hover:scale-130">
