@@ -19,9 +19,9 @@ export const extendedApi = api.injectEndpoints({
     //   providesTags: ['profile'],
     // }),
 
-    exploreMapArtwork: builder.query<any, void>({
-      query: () => ({
-        url: '/Map/MapList?locale=en&organizationName=Manar',
+    exploreMapArtwork: builder.query<any, { locale: string; organizationName: string }>({
+      query: ({ locale, organizationName }) => ({
+        url: `/Map/MapList?locale=${locale}&organizationName=${organizationName}`,
         method: 'GET',
         headers: { hideSuccessToast: 'true' },
       }),

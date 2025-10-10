@@ -37,7 +37,7 @@ export default function QuickLinkBlock({ data, positions }: { data: any; positio
           >
             {/* Todo:remove this hard code image */}
             <div className="transform transition-transform duration-300 group-hover:scale-130">
-              <Image src={mode === 'dark' ? createImageFullUrl(data?.icons[0]?.light?.src) : createImageFullUrl(data?.icons[0]?.dark?.src)} alt={item.label} width={24} height={24} className="!opacity-100" />
+              <Image src={mode === 'dark' ? createImageFullUrl(data?.icons[0]?.light?.src) : createImageFullUrl(data?.icons[0]?.dark?.src)} alt={item.label} width={35} height={35} className="!opacity-100" />
             </div>
             <span className="text-base font-semibold text-foreground !opacity-100">{item.label}</span>
           </Link>

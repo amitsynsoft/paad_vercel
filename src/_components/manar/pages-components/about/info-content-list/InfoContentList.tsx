@@ -13,8 +13,8 @@ const InfoContentList: React.FC<{ data: InfoContentListComponent }> = ({ data: {
             <Image src={createImageFullUrl(item?.images?.portrait?.url) || ''} alt={item?.title} width={600} height={600} className="rounded-2xl object-cover w-full h-auto" />
           </div>
           <div className="w-full md:w-1/2 space-y-4">
-            <h3 className="text-2xl font-semibold">{item?.title}</h3>
-            <div className="prose text-foreground" dangerouslySetInnerHTML={{ __html: item?.markdown }} />
+            <h3 className="text-lg font-semibold">{item?.title}</h3>
+            <div className="prose text-foreground text-base" dangerouslySetInnerHTML={{ __html: item?.markdown }} />
           </div>
         </div>
       ))}

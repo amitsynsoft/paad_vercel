@@ -22,7 +22,7 @@ const VideoContentBlock: React.FC<VideoContentBlockProps> = ({ data }) => {
     <section className="py-24 px-6 md:px-10 ">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12">
         {/* Left: Text content */}
-        <div className="text-left text-foreground space-y-5 leading-relaxed"> {markdown && <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>}</div>
+        <div className="text-left text-foreground text-base space-y-5 leading-relaxed"> {markdown && <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>}</div>
 
         {/* Right: Slanted video container */}
         {url && (

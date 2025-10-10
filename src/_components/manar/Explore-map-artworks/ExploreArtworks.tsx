@@ -4,8 +4,6 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker, OverlayView } from '@react-google-maps/api'
 
 import { useLocale } from 'next-intl'
-// import { locationData } from './location.data'
-import { createImageFullUrl } from '@/utils'
 import { X } from 'lucide-react'
 import ImageGuard from '../_ui/image-guard/ImageGuard.component'
 import { ManarButton } from '../_ui/buttons/ManarButton'
@@ -18,40 +16,30 @@ const containerStyle = {
 const defaultCenter = { lat: 24.4539, lng: 54.3773 }
 
 export default function ExploreMap({ isButtonFilter = true, locationData }: { isButtonFilter?: boolean; locationData: any }) {
+  console.log({ locationData })
   const locale = useLocale()
-  const [selectedCity, setSelectedCity] = useState('All')
+  const [selectedCity, setSelectedCity] = useState(locale === 'ar' ? 'الكل' : 'All')
   const [selected, setSelected] = useState<any | null>(null)
   const [googleReady, setGoogleReady] = useState(false)
   const [hoveredMarkerId, setHoveredMarkerId] = useState<number | null>(null)
 
   const mapRef = useRef<google.maps.Map | null>(null)
 
-  console.log({ selected, URL: selected?.location?.artwork?.images?.[0]?.card?.url })
+  const cities = useMemo(() => [locale === 'ar' ? 'الكل' : 'All', ...locationData.cities.map((city: any) => city.name)], [locale])
 
-  // Cities + All
-  const cities = useMemo(() => ['All', ...locationData.cities.map((city: any) => city.name)], [])
+  const allLocations = useMemo(() => locationData.cities.flatMap((city: any) => city.locations), [locale])
 
-  // All locations
-  const allLocations = useMemo(() => locationData.cities.flatMap((city: any) => city.locations), [])
-
-  // Location types (for future checkbox use)
-  // const locationTypes = useMemo(() => {
-  //   const types = new Set(allLocations.map((loc) => loc.locationType))
-  //   return Array.from(types)
-  // }, [allLocations])
-
-  // Filter locations based on selected city
   const filteredLocations = useMemo(() => {
-    if (selectedCity === 'All') return allLocations
+    if (selectedCity === (locale === 'ar' ? 'الكل' : 'All')) return allLocations
     const cityData = locationData.cities.find((c: any) => c.name === selectedCity)
     return cityData ? cityData.locations : []
-  }, [selectedCity, allLocations])
+  }, [selectedCity, allLocations, locale])
 
-  // Update map when city changes
   useEffect(() => {
     if (!mapRef.current) return
 
-    if (selectedCity === 'All') {
+    if (selectedCity === (locale === 'ar' ? 'الكل' : 'All')) {
+      console.log('all', filteredLocations)
       const bounds = new window.google.maps.LatLngBounds()
       filteredLocations.forEach((loc: any) => {
         const lat = parseFloat(loc.location.lat)
@@ -70,11 +58,10 @@ export default function ExploreMap({ isButtonFilter = true, locationData }: { is
         }
       }
     }
-  }, [selectedCity, filteredLocations])
+  }, [selectedCity, filteredLocations, locale])
 
   return (
-    <div className="relative w-full h-full">
-      {/* City Filters */}
+    <div className="relative w-full h-full" key={locale} dir="ltr">
       {isButtonFilter && (
         <div className="absolute top-2 left-2 right-2 z-10 flex flex-wrap gap-2 w-full max-w-[calc(100%-4rem)]">
           {cities.map((city) => (
@@ -85,22 +72,6 @@ export default function ExploreMap({ isButtonFilter = true, locationData }: { is
         </div>
       )}
 
-      {/* Location Type Filters (commented) */}
-      {/*
-      <div className="absolute top-16 left-2 z-10 flex flex-wrap gap-4">
-        {locationTypes.map((type) => (
-          <Checkbox
-            key={type}
-            isSelected={selectedTypes.includes(type)}
-            onChange={(e) => handleTypeChange(type, e.target.checked)}
-          >
-            {type}
-          </Checkbox>
-        ))}
-      </div>
-      */}
-
-      {/*  Google Map  */}
       <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string} language={locale} onLoad={() => setGoogleReady(true)}>
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -109,7 +80,7 @@ export default function ExploreMap({ isButtonFilter = true, locationData }: { is
           options={{ mapTypeControl: false }}
           onLoad={(map) => {
             mapRef.current = map
-            if (selectedCity === 'All') {
+            if (selectedCity === (locale === 'ar' ? 'الكل' : 'All')) {
               const bounds = new window.google.maps.LatLngBounds()
               allLocations.forEach((loc: any) => {
                 const lat = parseFloat(loc.location.lat)

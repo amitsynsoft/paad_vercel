@@ -11,7 +11,7 @@ const MarkdownRenderer: React.FC<{ data: MarkdownRendererComponent }> = ({ data 
 
   return (
     <section className="max-w-5xl mx-auto py-10 px-4">
-      <article className="prose prose-lg text-foreground">
+      <article className="prose prose-lg text-foreground text-base">
         <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
       </article>
     </section>

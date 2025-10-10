@@ -5,9 +5,11 @@ import Link from 'next/link'
 import ExploreMap from '@/_components/manar/Explore-map-artworks/ExploreArtworks'
 import { useExploreMapArtworkQuery } from '@/redux/services/auth.api'
 import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
+import { useLocale } from 'next-intl'
 
 export default function ExploreMapSection({ data }: { data: any }) {
-  const { data: mapData, isError } = useExploreMapArtworkQuery()
+  const locale = useLocale()
+  const { data: mapData, isError } = useExploreMapArtworkQuery({ locale, organizationName: 'Manar' })
   console.log(mapData)
 
   return (
