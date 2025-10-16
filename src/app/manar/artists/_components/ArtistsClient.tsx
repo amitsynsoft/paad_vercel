@@ -37,7 +37,7 @@ export default function ArtistsClient({ data }: { data: any }) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">{data?.artists && data.artists.map((item: any, index: number) => <ArtistCard key={index} artistData={item} />)}</div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-6 md:gap-y-17 md:gap-x-8">{data?.artists && data.artists.map((item: any, index: number) => <ArtistCard key={index} artistData={item} />)}</div>
     </Section>
   )
 }

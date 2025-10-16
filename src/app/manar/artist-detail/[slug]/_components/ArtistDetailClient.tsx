@@ -40,10 +40,10 @@ export default function ArtistDetailClient({ data }: { data: any }) {
       {Boolean(data?.artworks?.length) && <ArtworkSection artworkData={data?.artworks} />}
 
       {/* Map */}
-      <MapArtistDetail artworks={data?.artworks} />
+      {Boolean(data?.artworks?.length) && <MapArtistDetail artworks={data?.artworks} />}
 
       {/* Media */}
-      <MediaPlayer />
+      {Boolean(data?.media?.length) && <MediaPlayer />}
 
       {/* previous artworks */}
       {/* <Section>

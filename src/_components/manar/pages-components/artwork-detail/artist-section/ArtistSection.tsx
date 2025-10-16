@@ -8,7 +8,7 @@ export default function ArtistSection({ artworkData }: { artworkData: any }) {
   return (
     <Section>
       {/* Hardcoded */}
-      <h2 className="text-lg text-foreground font-semibold mb-4">{locale === 'en' ? 'Artists' : 'الفنانون'}</h2>
+      <h2 className="text-lg text-foreground font-semibold mb-4">{locale === 'en' ? 'Artist' : 'الفنانون'}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 ">
         <ArtistCard artistData={artworkData?.artist} />
       </div>

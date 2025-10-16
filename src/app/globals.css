@@ -81,9 +81,9 @@
   overflow: unset !important;
 }
 
-.swiper-main .artistSwiper .swiper-slide {
-  max-width: 400px !important;
-}
+/* .swiper-main .artistSwiper .swiper-slide {
+  min-width: 320px !important;
+} */
 
 @media (min-width: 1400px) {
   header {

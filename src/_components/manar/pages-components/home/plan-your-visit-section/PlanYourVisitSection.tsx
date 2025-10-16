@@ -9,7 +9,7 @@ import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
 export default function PlanYourVisitSection({ data }: { data: any }) {
   return (
     <Section>
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-xl mx-auto text-center">
         <h2 className="text-lg text-foreground font-semibold mb-4">{data?.title || ''}</h2>
         <ManarButton
           as={Link}

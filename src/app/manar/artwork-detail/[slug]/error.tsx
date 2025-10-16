@@ -8,17 +8,17 @@ import { useTranslations } from 'next-intl'
 
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   const errorT = useTranslations('Error')
-  const artistDetailT = useTranslations('Manar.ArtistDetail')
+  const artworkDetailT = useTranslations('Manar.ArtworkDetail')
 
   const router = useRouter()
   if (error?.message.includes('404')) {
     return (
       <Section>
         <NoRecordFound
-          imageSrc="/images/artist-not-found.svg"
-          title={artistDetailT('ArtistNotFound')}
-          message={artistDetailT('ArtistNotFoundMessage')}
-          actionLabel={artistDetailT('ArtistNotFoundActionLabel')}
+          imageSrc="/images/artwork-not-found.svg"
+          title={artworkDetailT('ArtworkNotFound')}
+          message={artworkDetailT('ArtworkNotFoundMessage')}
+          actionLabel={artworkDetailT('ArtworkNotFoundActionLabel')}
           onAction={() => router.back()}
         />
       </Section>

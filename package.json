@@ -26,6 +26,7 @@
     "@reduxjs/toolkit": "^2.9.0",
     "cross-env": "^10.1.0",
     "framer-motion": "^12.23.22",
+    "google-translate-api-x": "^10.7.2",
     "lucide-react": "^0.544.0",
     "moment": "^2.30.1",
     "next": "15.5.4",

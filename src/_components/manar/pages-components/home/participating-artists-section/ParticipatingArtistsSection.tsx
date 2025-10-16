@@ -1,9 +1,11 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 import NextPreviousButton from '@/_components/manar/_ui/carousels/next-previous-buttons/NextPreviousButton'
 import { useLocale } from 'next-intl'
@@ -14,59 +16,62 @@ import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
 export default function ParticipatingArtistsSection({ data }: { data: any }) {
   const locale = useLocale()
   const { mode } = useThemeStore()
+  const swiperRef = useRef<any>(null)
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      // force swiper to reinitialize navigation once buttons exist
+      setTimeout(() => {
+        swiperRef.current.params.navigation.prevEl = `.swiper-button-prev-${mode}`
+        swiperRef.current.params.navigation.nextEl = `.swiper-button-next-${mode}`
+        swiperRef.current.navigation.init()
+        swiperRef.current.navigation.update()
+      }, 100)
+    }
+  }, [mode])
 
   return (
-    <>
-      <section className="md:py-16 px-6 md:px-0 py-8 overflow-hidden">
-        <div className="container">
-          <div className="flex flex-wrap justify-between mb-8">
-            <h2 className="text-lg text-foreground font-semibold hidden md:block">{data?.title}</h2>
-            <h2 className="text-lg text-foreground font-semibold block md:hidden">{locale === 'ar' ? 'فنانون' : 'Artists'}</h2>
-            <div className="flex gap-2 items-center">
-              <ManarButton as={Link} color="primaryOutlineHover" href={data?.button?.url}>
-                {data?.button?.label}
-              </ManarButton>
-              {/* swiper buttons */}
-              <NextPreviousButton />
-            </div>
-          </div>
+    <section className="md:py-16 px-6 md:px-0 py-8 overflow-hidden">
+      <div className="container">
+        <div className="flex flex-wrap justify-between mb-8">
+          <h2 className="text-lg text-foreground font-semibold hidden md:block">{data?.title}</h2>
+          <h2 className="text-lg text-foreground font-semibold block md:hidden">{locale === 'ar' ? 'فنانون' : 'Artists'}</h2>
 
-          <div className="swiper-main" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-            <Swiper
-              key={locale}
-              dir={locale === 'ar' ? 'rtl' : 'ltr'}
-              slidesPerView={1}
-              spaceBetween={30}
-              navigation={{
-                nextEl: `.swiper-button-next-${mode}`,
-                prevEl: `.swiper-button-prev-${mode}`,
-              }}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 30,
-                },
-                768: {
-                  slidesPerView: 4,
-                  spaceBetween: 30,
-                },
-                1024: {
-                  slidesPerView: 3.5,
-                  spaceBetween: 30,
-                },
-              }}
-              modules={[Navigation]}
-              className="artistSwiper"
-            >
-              {data?.artists?.map((artist: any, index: number) => (
-                <SwiperSlide key={`${index} + ${locale}`} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-                  <ArtistCard artistData={artist} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          <div className="flex gap-2 items-center">
+            <ManarButton as={Link} color="primaryOutlineHover" href={data?.button?.url}>
+              {data?.button?.label}
+            </ManarButton>
+            <NextPreviousButton />
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="swiper-main" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+          <Swiper
+            key={locale + mode} // force re-render when theme/locale changes
+            dir={locale === 'ar' ? 'rtl' : 'ltr'}
+            slidesPerView={1}
+            spaceBetween={30}
+            navigation={{
+              nextEl: `.swiper-button-next-${mode}`,
+              prevEl: `.swiper-button-prev-${mode}`,
+            }}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 30 },
+              768: { slidesPerView: 3.5, spaceBetween: 30 },
+              1024: { slidesPerView: 4.2, spaceBetween: 30 },
+            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            modules={[Navigation]}
+            className="artistSwiper"
+          >
+            {data?.artists?.map((artist: any, index: number) => (
+              <SwiperSlide key={`${index}-${locale}`}>
+                <ArtistCard artistData={artist} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
   )
 }

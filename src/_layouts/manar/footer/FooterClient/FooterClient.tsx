@@ -5,14 +5,13 @@ import { useThemeStore } from '@/zustund-store/useThemeMode.store'
 import Navigation from './components/Navigation'
 import SocialAndLegal from './components/SocialAndLegal'
 import { FooterDTO } from '@/dto/manar/Footer.dto'
-import Section from '@/_components/manar/_ui/section/Section'
 
 // TODO: remove any
 const FooterClient = ({ footerData }: { footerData: FooterDTO }) => {
   const { mode } = useThemeStore()
 
   return (
-    <footer className="w-full bg-background pt-20 pb-8 px-6">
+    <footer className="w-full bg-background pt-50 md:pt-96 pb-8 px-6">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
           {/* Left Navigation */}

@@ -6,7 +6,7 @@ import Section from '@/_components/manar/_ui/section/Section'
 export default function ArtworkDetailsCard({ artworkData }: { artworkData: any }) {
   return (
     <Section>
-      <h1 className="text-base sm:text-lg font-bold text-foreground sentence-case">{artworkData?.title}</h1>
+      <h1 className="text-lg sm:text-base font-bold text-foreground sentence-case">{artworkData?.title}</h1>
 
       <div className="my-4 flex flex-wrap gap-2">
         {artworkData?.tags?.map((tag: string) => (

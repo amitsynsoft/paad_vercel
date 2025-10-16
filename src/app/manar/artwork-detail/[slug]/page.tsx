@@ -1,6 +1,6 @@
 import React from 'react'
 import { getLocale } from 'next-intl/server'
-import ArtworkDetail from './_components/ArtworkDetail'
+import ArtworkDetailClient from './_components/ArtworkDetailClient'
 import { getArtworkDetailBySlug } from '@/services/manar/artworks/getArtworkDetailBySlug'
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <div className="container mb-12">
-      <ArtworkDetail artworkData={artworkData} />
+      <ArtworkDetailClient artworkData={artworkData} />
     </div>
   )
 }

@@ -32,9 +32,6 @@ export default async function RootLayout({
 
   return (
     <html className={`antialiased`} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <head>
-        <link rel="shortcut icon" href="/images/manar-favicon.png" type="image/x-icon" />
-      </head>
       <body className={`${inter.variable} ${ABCDiatypeFont.variable} antialiased`} suppressHydrationWarning={true}>
         <ReduxProvider>
           <NextIntlClientProvider locale={locale}>

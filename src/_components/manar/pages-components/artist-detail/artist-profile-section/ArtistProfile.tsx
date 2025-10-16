@@ -10,7 +10,7 @@ export const ArtistProfile: React.FC<ArtistProfileProps> = ({ name, about, tags,
         <div className="grid grid-cols-1 lg:grid-cols-5 lg:gap-16">
           {/* Left Column: Text Content (takes 3/5 of width on lg screens) */}
           <div className="lg:col-span-3">
-            <h1 className="text-base sm:text-lg font-bold text-foreground tracking-tight">{name}</h1>
+            <h1 className="text-lg sm:text-base font-bold text-foreground tracking-tight">{name}</h1>
 
             <div className="mt-3 text-base text-foreground font-bold">
               <p>{about}</p>
@@ -25,7 +25,7 @@ export const ArtistProfile: React.FC<ArtistProfileProps> = ({ name, about, tags,
                   color="primary"
                   size="md"
                   classNames={{
-                    content: 'font-bold text-sm',
+                    content: 'font-bold text-caption',
                   }}
                 >
                   {tag}

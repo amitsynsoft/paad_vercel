@@ -1,1 +1,20 @@
-{}
+{
+  "Error": {
+    "SomethingWentWrong": "Something went wrong",
+    "NotFoundTitle": "Oops! The page you are looking for doesn’t exist.",
+    "NotFoundMessage": "You might have typed the wrong URL or the page has moved.",
+    "GoBack": "Go Back"
+  },
+  "Manar": {
+    "ArtworkDetail": {
+      "ArtworkNotFound": "Artwork not found",
+      "ArtworkNotFoundMessage": "The artwork you are looking for does not exist.",
+      "ArtworkNotFoundActionLabel": "Go Back"
+    },
+    "ArtistDetail": {
+      "ArtistNotFound": "Artist not found",
+      "ArtistNotFoundMessage": "The artist you are looking for does not exist.",
+      "ArtistNotFoundActionLabel": "Go Back"
+    }
+  }
+}

@@ -6,6 +6,8 @@ import { Marker, OverlayView } from '@react-google-maps/api'
 import ImageGuard from '../../_ui/image-guard/ImageGuard.component'
 import { ManarButton } from '../../_ui/buttons/ManarButton'
 import Link from 'next/link'
+import Image from 'next/image'
+import { Button } from '@heroui/react'
 
 export default function MapMarkers({ locations, selected, setSelected, googleReady }: any) {
   const [hoveredMarkerId, setHoveredMarkerId] = useState<number | null>(null)
@@ -49,8 +51,8 @@ export default function MapMarkers({ locations, selected, setSelected, googleRea
                       </h3>
                       <h3 className="text-base">{selected.name}</h3>
                     </div>
-                    <div onClick={() => setSelected(null)} className="border-2 border-white rounded-full p-1 cursor-pointer">
-                      <X height={16} width={16} />
+                    <div className="w-[24px] h-[24px] group border-2 border-white rounded-full p-1 cursor-pointer hover:bg-white" onClick={() => setSelected(null)}>
+                      <img src="/x-button.svg" alt="close" height={12} width={12} className="transition-all group-hover:invert" />
                     </div>
                   </div>
                   {selected?.location?.artwork && (
@@ -64,8 +66,8 @@ export default function MapMarkers({ locations, selected, setSelected, googleRea
                       href={`https://www.google.com/maps/dir/?api=1&origin=my+location&destination=${selected?.location?.lat},${selected?.location?.lon}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      size="sm"
-                      className="text-medium text-white border-2 border-white rounded-full px-4 py-1 cursor-pointer"
+                      color="directionOutlineHover"
+                      className="text-sm h-8"
                     >
                       Directions
                     </ManarButton>

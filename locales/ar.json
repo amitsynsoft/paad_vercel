@@ -1,1 +1,20 @@
-{}
+{
+  "Error": {
+    "SomethingWentWrong": "حدث خطأ ما",
+    "NotFoundTitle": "أُووبس! الصفحة التي تبحث عنها غير موجودة.",
+    "NotFoundMessage": "ربما تكون قد كتبت عنوان URL خاطئًا أو تم نقل الصفحة.",
+    "GoBack": "عُد"
+  },
+  "Manar": {
+    "ArtworkDetail": {
+      "ArtworkNotFound": "لم يتم العثور على العمل الفني",
+      "ArtworkNotFoundMessage": "العمل الفني الذي تبحث عنه غير موجود.",
+      "ArtworkNotFoundActionLabel": "عُد"
+    },
+    "ArtistDetail": {
+      "ArtistNotFound": "لم يتم العثور على الفنان",
+      "ArtistNotFoundMessage": "الفنان الذي تبحث عنه غير موجود.",
+      "ArtistNotFoundActionLabel": "عُد"
+    }
+  }
+}

@@ -13,7 +13,7 @@ export default function ArtistCard({ artistData, className = 'bg-danger' }: { ar
         </div>
 
         {/* Title */}
-        <div className="px-2 py-2">
+        <div className="px-2 py-3">
           <h4 className="text-base font-semibold">{artistData?.title}</h4>
           <p className="text-sm font-semibold">{artistData?.about}</p>
         </div>

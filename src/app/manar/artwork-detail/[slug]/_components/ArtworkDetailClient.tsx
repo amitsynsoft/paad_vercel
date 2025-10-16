@@ -44,7 +44,7 @@ export default function ArtworkDetail({ artworkData }: { artworkData: any }) {
         </div>
 
         {/* --- Map Section --- */}
-        <MapArtworkDetail location={artworkData?.location} images={artworkData?.images} />
+        {Boolean(Object.keys(artworkData?.location).length) && <MapArtworkDetail location={artworkData?.location} images={artworkData?.images} />}
 
         {/* Artists */}
         <ArtistSection artworkData={artworkData} />
