@@ -8,6 +8,8 @@ import ArtistCard from '@/_components/manar/_ui/cards/artist-card/ArtistCard'
 import NoRecordFound from '@/_components/manar/_ui/no-record-found/NoRecordFound'
 import ArtistsAndArtworksHeader from '@/_layouts/manar/pageHeaders/Artists&Artworks'
 import { paths } from '@/navigate/paths'
+import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
+import Link from 'next/link'
 
 export default function ArtistsClient({ data }: { data: any }) {
   return (
@@ -19,12 +21,12 @@ export default function ArtistsClient({ data }: { data: any }) {
         artworkLink={paths.manarArtworks()}
         actions={
           <>
-            <Button variant="bordered" size="md" color="primary" href="/manar/artists" className="rounded-full font-semibold">
+            {/* <ManarButton as={Link} color="primaryOutlineHover" href={'#'}>
               Location
-            </Button>
-            <Button variant="bordered" size="md" color="primary" href="/manar/artworks" className="rounded-full font-semibold">
+            </ManarButton>
+            <ManarButton as={Link} color="primaryOutlineHover" href={'#'}>
               Keywords
-            </Button>
+            </ManarButton> */}
           </>
         }
       />

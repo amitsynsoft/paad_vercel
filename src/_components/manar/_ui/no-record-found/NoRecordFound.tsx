@@ -22,8 +22,8 @@ const NoRecordFound: React.FC<NoRecordFoundProps> = ({
             <div className="relative w-40 h-40 mb-6">
               <ImageGuard src={imageSrc} alt="No Record Found" fill className="object-contain opacity-90" />
             </div>
-            <h2 className="text-xl font-semibold text-foreground mb-2">{title}</h2>
-            <p className="text-sm text-default-500 max-w-md mb-6">{message}</p>
+            <h2 className="text-lg font-semibold text-foreground mb-2">{title}</h2>
+            <p className="text-base text-default-500 max-w-md mb-6">{message}</p>
 
             {actionLabel && onAction && (
               <Button color="primary" variant="solid" size="md" onPress={onAction} className="rounded-full font-medium min-w-[150px]">

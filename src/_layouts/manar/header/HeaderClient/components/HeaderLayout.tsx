@@ -15,21 +15,18 @@ import LanguageSwitch from '@/_components/_globalUI/LanguageSwitch'
 import { useThemeStore } from '@/zustund-store/useThemeMode.store'
 import { useLocale } from 'next-intl'
 import { HeaderDTO } from '@/dto/manar'
-import { usePathname } from 'next/navigation'
-import { createImageFullUrl } from '@/utils'
 
 export default function HeaderLayout({ setOpen, open, headerData }: { setOpen: (open: boolean) => void; open: boolean; headerData: HeaderDTO }) {
   const { mode } = useThemeStore()
   const locale = useLocale()
-  const pathname = usePathname()
 
-  const normalSrc = mode === 'dark' ? createImageFullUrl(headerData?.headerIcon?.[0]?.dark?.src ?? '') : createImageFullUrl(headerData?.headerIcon?.[0]?.light?.src ?? '')
-  const hoverSrc = mode === 'dark' ? createImageFullUrl(headerData?.headerIconShrink?.[0]?.dark?.src ?? '') : createImageFullUrl(headerData?.headerIconShrink?.[0]?.light?.src ?? '')
+  const normalSrc = mode === 'dark' ? (headerData?.headerIcon?.[0]?.dark?.src ?? '') : (headerData?.headerIcon?.[0]?.light?.src ?? '')
+  const hoverSrc = mode === 'dark' ? (headerData?.headerIconShrink?.[0]?.dark?.src ?? '') : (headerData?.headerIconShrink?.[0]?.light?.src ?? '')
 
   return (
     <>
       {/* Navbar */}
-      <Navbar className={`bg-background sticky top-0 z-50 ${pathname === '/manar' ? '' : 'border-b-2 border-primary dark:border-primary/60'}`} maxWidth="2xl" isBordered>
+      <Navbar className={`bg-background sticky top-0 z-50 border-b-2 border-primary dark:border-primary`} maxWidth="2xl" isBordered>
         {/* Left Section: Custom Logo Toggle */}
         <NavbarContent justify="start" className="gap-1">
           {/* Icon Toggle */}
@@ -44,10 +41,10 @@ export default function HeaderLayout({ setOpen, open, headerData }: { setOpen: (
     w-[40px] h-[40px] flex items-center justify-center p-0"
           >
             {/* Normal icon */}
-            <Image src={normalSrc || '/placeholder.png'} alt="Logo" width={30} height={30} className="absolute inset-0 m-auto transition-opacity duration-200 opacity-100 group-hover:opacity-0" />
+            <Image src={normalSrc || '/images/placeholder.svg'} alt="Logo" width={30} height={30} className="absolute inset-0 m-auto transition-opacity duration-200 opacity-100 group-hover:opacity-0" />
 
             {/* Hover icon */}
-            <Image src={hoverSrc || '/placeholder.png'} alt="Logo Hover" width={30} height={30} className="absolute inset-0 m-auto transition-opacity duration-200 opacity-0 group-hover:opacity-100" />
+            <Image src={hoverSrc || '/images/placeholder.svg'} alt="Logo Hover" width={30} height={30} className="absolute inset-0 m-auto transition-opacity duration-200 opacity-0 group-hover:opacity-100" />
           </Button>
 
           {/* Menu Label */}
@@ -105,7 +102,7 @@ export default function HeaderLayout({ setOpen, open, headerData }: { setOpen: (
 
           <NavbarItem>
             <Button variant="light" isIconOnly className="hover:opacity-80 transition-opacity text-foreground dark:text-white">
-              <SearchIcon />
+              <Image src={headerData?.searchLogo?.[0]?.images?.[mode === 'dark' ? 'dark' : 'light']?.src ?? '/placeholder.png'} alt="search" width={18} height={18} />
             </Button>
           </NavbarItem>
         </NavbarContent>

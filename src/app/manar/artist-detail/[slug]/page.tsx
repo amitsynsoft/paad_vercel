@@ -10,6 +10,5 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const slug = decodeURIComponent((await params).slug)
 
   const artistDetailData = await getArtistDetailBySlug({ locale, slug })
-
   return <ArtistDetailClient data={artistDetailData} />
 }

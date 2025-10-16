@@ -1,6 +1,6 @@
 'use server'
 
-import { ORG_CONFIG } from './api.config'
+import { ORG_CONFIG } from '@/utils/constant.utils'
 import { ApiOptions } from './api.type'
 
 export async function apiFetch<T>(endpoint: string, options: ApiOptions = {}): Promise<T> {

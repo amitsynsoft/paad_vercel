@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useThemeStore } from '@/zustund-store/useThemeMode.store'
 import Section from '../../../_ui/section/Section'
-import { createImageFullUrl } from '@/utils'
 
 // TODO: remove any
 export default function QuickLinkBlock({ data, positions }: { data: any; positions?: string[] }) {
@@ -16,7 +15,6 @@ export default function QuickLinkBlock({ data, positions }: { data: any; positio
     label: item?.label,
     position: navItemsPosition[index],
   }))
-  console.log('quickliks', data)
   return (
     <Section>
       <div className="relative w-full h-[400px] md:h-[300px] flex items-center justify-center">
@@ -37,7 +35,7 @@ export default function QuickLinkBlock({ data, positions }: { data: any; positio
           >
             {/* Todo:remove this hard code image */}
             <div className="transform transition-transform duration-300 group-hover:scale-130">
-              <Image src={mode === 'dark' ? createImageFullUrl(data?.icons[0]?.light?.src) : createImageFullUrl(data?.icons[0]?.dark?.src)} alt={item.label} width={35} height={35} className="!opacity-100" />
+              <Image src={mode === 'dark' ? data?.icons[0]?.light?.src : data?.icons[0]?.dark?.src} alt={item.label} width={35} height={35} className="!opacity-100" />
             </div>
             <span className="text-base font-semibold text-foreground !opacity-100">{item.label}</span>
           </Link>

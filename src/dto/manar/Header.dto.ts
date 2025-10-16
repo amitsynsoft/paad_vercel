@@ -6,6 +6,8 @@ export interface HeaderDTO {
   headerLogo?: HeaderIcon[]
   slides?: string[]
   headerLinks?: HeaderLink
+  mobileLogo?: MobileLogo[]
+  searchLogo?: SearchLogo[]
 }
 
 type ImageVariant = {
@@ -26,4 +28,17 @@ type MenuItem = {
 type HeaderLink = {
   label: string
   url: string
+}
+
+type MobileLogo = {
+  light: ImageVariant
+  dark: ImageVariant
+}
+
+type SearchLogo = {
+  search: string
+  images: {
+    light: ImageVariant
+    dark: ImageVariant
+  }
 }

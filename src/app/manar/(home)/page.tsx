@@ -7,6 +7,5 @@ import { getLocale } from 'next-intl/server'
 export default async function ManarPage() {
   const locale = await getLocale()
   const homePageData = await getHomeManarPage({ locale })
-
   return <PageRender registry={HomePageRegistry} data={homePageData} />
 }

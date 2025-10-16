@@ -81,7 +81,7 @@ export default function NewsSection({ data }: { data: any }) {
         >
           {newsData.map((item) => (
             <SwiperSlide key={`${item.id}-${locale}`}>
-              <NewsCard newsData={item} />
+              <NewsCard newsData={item} className="hover:bg-warning" />
             </SwiperSlide>
           ))}
         </Swiper>

@@ -5,6 +5,7 @@ export interface FooterDTO {
   secondaryLinks?: SecondaryLink[]
   copyRight?: string
   socialLinks?: SocialLinks
+  mobileLogo?: MobileLogo[]
 }
 
 type ImageVariant = {
@@ -40,4 +41,9 @@ type SocialLinks = {
   linkedin?: string
   tiktok?: string
   [key: string]: string | undefined
+}
+
+type MobileLogo = {
+  light?: ImageVariant
+  dark?: ImageVariant
 }

@@ -27,7 +27,7 @@ export function ProviderHeroUI({ children }: { children: React.ReactNode }) {
 
   return (
     <HeroUIProvider>
-      <div data-theme={finalTheme} className={`min-h-screen ${finalTheme}`}>
+      <div data-theme={finalTheme} className={`min-h-screen ${finalTheme} ${mode}`}>
         {children}
       </div>
     </HeroUIProvider>

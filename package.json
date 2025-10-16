@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
     "postinstall": "npm rebuild lightningcss || true",
-    "start": "next start -p $PORT",
-    "start:standalone": "node .next/standalone/server.js",
-    "deploy": "pm2 startOrRestart ecosystem.config.js",
+    "dev": "next dev --turbopack",
+    "dev:UAT": "cross-env NODE_ENV=test next dev --turbopack",
+    "dev:PRODUCTION": "cross-env NODE_ENV=production next dev --turbopack",
+    "build:DEVELOPMENT": "cross-env NODE_ENV=development next build",
+    "build:UAT": "cross-env NODE_ENV=test next build",
+    "build": "next build",
+    "postbuild:DEVELOPMENT": "npm run copy-standalone-assets",
+    "postbuild:UAT": "npm run copy-standalone-assets",
+    "postbuild": "npm run copy-standalone-assets",
+    "copy-standalone-assets": "shx mkdir -p .next/standalone/.next/static && shx cp -r .next/static/* .next/standalone/.next/static && shx mkdir -p .next/standalone/public && shx cp -r public/* .next/standalone/public",
+    "start:without-standalone": "next start",
+    "start": "node .next/standalone/server.js",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
@@ -40,6 +47,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
+    "shx": "^0.4.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

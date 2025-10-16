@@ -1,24 +1,88 @@
 @import 'tailwindcss';
-
-/* Note: You may need to change the path to fit your project structure */
 @config "../../tailwind.config.js";
 
-@theme inline {
+/* Root font variables */
+:root {
   --font-abcdiatype: var(--font-abcdiatype);
+
   --text-sm: 15px;
   --text-sm--line-height: 1.2;
+
   --text-base: 20px;
   --text-base--line-height: 1.2;
+
   --text-lg: 40px;
   --text-lg--line-height: 1.3;
 }
 
+/* Responsive overrides */
+
+/* For screen <= 1366px */
+@media (max-width: 1366px) {
+  :root {
+    --text-base: 18px;
+    --text-base--line-height: 1.4;
+
+    --text-lg: 30px;
+    --text-lg--line-height: 1.3;
+  }
+}
+
+/* For screen <= 1024px */
+/* @media (max-width: 1024px) {
+  :root {
+    --text-base: 17px;
+    --text-lg: 28px;
+  }
+} */
+
+/* For screen <= 768px */
+/* @media (max-width: 768px) {
+  :root {
+    --text-base: 16px;
+    --text-lg: 24px;
+  }
+} */
+
+/* For screen <= 480px */
+/* @media (max-width: 480px) {
+  :root {
+    --text-base: 15px;
+    --text-lg: 20px;
+  }
+} */
+
+/* Optional helper classes */
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+}
+
+.text-base {
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+  line-height: var(--text-lg--line-height);
+}
+
+/* Utility styles */
 .sentence-case {
   text-transform: lowercase;
 }
 
 .sentence-case::first-letter {
   text-transform: uppercase;
+}
+
+.swiper-main .artistSwiper {
+  overflow: unset !important;
+}
+
+.swiper-main .artistSwiper .swiper-slide {
+  max-width: 400px !important;
 }
 
 @media (min-width: 1400px) {

@@ -1,15 +1,17 @@
 import { paths } from '@/navigate/paths'
 import Link from 'next/link'
 import React from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function ArtistsAndArtworksHeader({ artistTitle, artistLink, artworkTitle, artworkLink, actions }: ArtistsAndArtworksProps) {
+  const pathName = usePathname()
   return (
     <div className="flex justify-between mb-12">
       <div className="flex gap-6">
-        <Link href={artistLink || paths.manarArtists()} className="font-semibold text-2xl underline">
+        <Link href={artistLink || paths.manarArtists()} className={`font-semibold text-lg ${pathName === paths.manarArtists() ? 'underline ' : ''}`}>
           {artistTitle}
         </Link>
-        <Link href={artworkLink || paths.manarArtworks()} className="font-semibold text-2xl">
+        <Link href={artworkLink || paths.manarArtworks()} className={`font-semibold text-lg ${pathName === paths.manarArtworks() ? 'underline' : ''}`}>
           {artworkTitle}
         </Link>
       </div>

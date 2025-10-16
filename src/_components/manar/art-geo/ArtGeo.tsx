@@ -1,10 +1,10 @@
 'use client'
 
+import { X } from 'lucide-react'
+import { useLocale } from 'next-intl'
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker, OverlayView } from '@react-google-maps/api'
 
-import { useLocale } from 'next-intl'
-import { X } from 'lucide-react'
 import ImageGuard from '../_ui/image-guard/ImageGuard.component'
 import { ManarButton } from '../_ui/buttons/ManarButton'
 
@@ -15,8 +15,7 @@ const containerStyle = {
 
 const defaultCenter = { lat: 24.4539, lng: 54.3773 }
 
-export default function ExploreMap({ isButtonFilter = true, locationData }: { isButtonFilter?: boolean; locationData: any }) {
-  console.log({ locationData })
+export default function ArtGeo({ isButtonFilter = true, locationData }: { isButtonFilter?: boolean; locationData: any }) {
   const locale = useLocale()
   const [selectedCity, setSelectedCity] = useState(locale === 'ar' ? 'الكل' : 'All')
   const [selected, setSelected] = useState<any | null>(null)
@@ -39,7 +38,6 @@ export default function ExploreMap({ isButtonFilter = true, locationData }: { is
     if (!mapRef.current) return
 
     if (selectedCity === (locale === 'ar' ? 'الكل' : 'All')) {
-      console.log('all', filteredLocations)
       const bounds = new window.google.maps.LatLngBounds()
       filteredLocations.forEach((loc: any) => {
         const lat = parseFloat(loc.location.lat)

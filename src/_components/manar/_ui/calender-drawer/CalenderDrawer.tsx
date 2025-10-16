@@ -39,8 +39,8 @@ export default function CalendarDrawer() {
       {/* Floating Action Button */}
       <div className="fixed bottom-6  right-6 z-50">
         <div className="flex flex-col items-center justify-center p-3 gap-4 bg-background rounded-full text-primary border-2 border-primary cursor-pointer" onClick={() => setIsOpen(true)}>
-          <span className="text-sm font-bold leading-1">{moment()?.format('MMM')?.toUpperCase()}</span>
-          <span className="text-xl font-extrabold leading-1">{moment().format('DD')}</span>
+          <span className="text-base font-bold leading-1">{moment()?.format('MMM')?.toUpperCase()}</span>
+          <span className="text-lg font-extrabold leading-1">{moment().format('DD')}</span>
         </div>
 
         <Drawer isOpen={isOpen} onOpenChange={setIsOpen} size="sm" placement="right" className={`rounded-none bg-background font-abcdiatype manar-${mode}`} hideCloseButton>
@@ -77,7 +77,7 @@ export default function CalendarDrawer() {
 
                   {/* Event List */}
                   <div className="mt-4 space-y-4">
-                    {selectedDate && selectedEvents.length === 0 && <p className="text-center text-primary text-sm">No events on {selectedDate.format('DD MMMM YYYY')}</p>}
+                    {selectedDate && selectedEvents.length === 0 && <p className="text-center text-primary text-lg">No events on {selectedDate.format('DD MMMM YYYY')}</p>}
 
                     {selectedEvents.map((event) => (
                       <Card key={event.id} className="bg-background shadow-none overflow-hidden">

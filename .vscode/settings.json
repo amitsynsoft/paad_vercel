@@ -1,5 +1,0 @@
-{
-  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
-  "appService.defaultWebAppToDeploy": "/subscriptions/d74fa7a3-0178-4912-bd23-542fa409edd1/resourceGroups/Wev/providers/Microsoft.Web/sites/paadweb",
-  "appService.deploySubpath": "."
-}

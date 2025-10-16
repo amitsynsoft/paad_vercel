@@ -14,6 +14,10 @@ const config: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'resources.dctt.gov.ae',
+      },
+      {
+        protocol: 'https',
         hostname: 'images.pexels.com',
       },
       {

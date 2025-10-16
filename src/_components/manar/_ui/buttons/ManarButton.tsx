@@ -4,18 +4,54 @@ import { extendVariants, Button } from '@heroui/react'
 export const ManarButton = extendVariants(Button, {
   variants: {
     color: {
-      primaryOutline:
-        'text-[#1d136a] text-base bg-white rounded-full border-[2px] border-[#1d136a] font-semibold hover:bg-[#1d136a] hover:text-white hover:border-[#1d136a] !opacity-100 transition-all duration-300 ease-in-out',
-      primary: 'text-white text-base bg-[#1d136a] rounded-full font-semibold',
-      primaryOutlineHover:
-        'text-[#1d136a] text-base bg-white rounded-full border-[2px] border-[#1d136a] font-semibold hover:bg-[#1d136a] hover:text-white hover:border-[#ffffff] !opacity-100 transition-all duration-300 ease-in-out',
+      primary: 'rounded-full dark:bg-background dark:text-white',
+      primaryOutline: `
+      text-base 
+      border-[2px] 
+      rounded-full 
+      font-semibold 
+      !opacity-100 
+      transition-all 
+      duration-300 
+      ease-in-out
+      bg-white 
+      text-primary 
+      border-primary 
+      hover:bg-primary 
+      hover:text-white 
+      hover:border-primary 
+      dark:bg-white 
+      dark:text-primary-foreground 
+      dark:border-primary-foreground 
+      dark:hover:bg-background
+      dark:hover:text-primary 
+      dark:hover:border-primary-foreground
+      `,
+      primaryOutlineHover: `
+      rounded-full
+      text-base
+      bg-transparent
+       border-[2px] 
+       border-primary 
+       hover:bg-primary 
+       hover:text-white 
+       hover:border-primary 
+       !opacity-100 
+       transition-all 
+       duration-300 
+       ease-in-out
+       dark:hover:bg-white
+       dark:hover:text-primary-foreground
+       dark:hover:border-primary
+       `,
     },
     isDisabled: {
-      true: 'bg-[#eaeaea] text-[#000] opacity-50 cursor-not-allowed',
+      true: 'bg-[#eaeaea] text-black opacity-50 cursor-not-allowed',
     },
     size: {
       xs: 'px-2 min-w-12 h-6 text-small gap-1',
-      md: 'px-4 min-w-20 h-10 text-medium font-semibold gap-2',
+      sm: 'px-4 min-w-16 h-8 text-small gap-1 border-2 border-primary font-semibold ',
+      md: 'px-4 min-w-20 h-10 text-base font-semibold gap-2',
       xl: 'px-8 min-w-28 h-14 text-large font-semibold gap-4',
     },
   },
@@ -26,15 +62,12 @@ export const ManarButton = extendVariants(Button, {
   compoundVariants: [
     {
       isDisabled: true,
-      color: 'primaryOutline',
-    },
-    {
-      isDisabled: true,
       color: 'primaryOutlineHover',
+      variant: 'bordered',
     },
     {
       isDisabled: true,
-      color: 'primary',
+      color: 'primaryOutline',
     },
   ],
 })
