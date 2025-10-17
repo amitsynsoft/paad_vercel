@@ -21,14 +21,14 @@ export default function ArtworkDetail({ artworkData }: { artworkData: any }) {
   const locale = useLocale()
   return (
     <div>
-      <div className="container my-8">
+      <Section className="!pt-7 md:!pt-10 !pb-25 md:!pb-32">
         {/* harcoded */}
 
         <ManarButton as={Link} color="primaryOutlineHover" className={`${locale === 'en' ? 'flex-row' : 'flex-row-reverse'}`} href={paths.manarArtworks()}>
           <ArrowLeft /> {locale === 'en' ? 'All Artworks' : 'جميع الأعمال الفنية'}
         </ManarButton>
 
-        <div className="max-w-[906px] mx-auto px-4 ">
+        <div className="max-w-[906px] mx-auto">
           {/* --- Header Section --- */}
           <ArtworkDetailsCard artworkData={artworkData} />
 
@@ -36,19 +36,18 @@ export default function ArtworkDetail({ artworkData }: { artworkData: any }) {
           <ArtworkSlider artworkData={artworkData} />
 
           {/* --- Artwork Details Section --- */}
-          <Section>
-            <div className=" text-base text-foreground  ">
-              <ReactMarkdown rehypePlugins={[rehypeRaw]}>{artworkData?.markdown}</ReactMarkdown>
-            </div>
-          </Section>
+
+          <div className="text-[18px] md:text-[25px] leading-[22px] md:leading-[30px] text-foreground pt-8 md:pt-20 ">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{artworkData?.markdown}</ReactMarkdown>
+          </div>
         </div>
+      </Section>
 
-        {/* --- Map Section --- */}
-        {Boolean(Object.keys(artworkData?.location).length) && <MapArtworkDetail location={artworkData?.location} images={artworkData?.images} />}
+      {/* --- Map Section --- */}
+      {Boolean(Object.keys(artworkData?.location).length) && <MapArtworkDetail location={artworkData?.location} images={artworkData?.images} />}
 
-        {/* Artists */}
-        <ArtistSection artworkData={artworkData} />
-      </div>
+      {/* Artists */}
+      <ArtistSection artworkData={artworkData} />
     </div>
   )
 }

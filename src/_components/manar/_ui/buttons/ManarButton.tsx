@@ -57,6 +57,9 @@ export const ManarButton = extendVariants(Button, {
       transition-all 
       duration-300 
       ease-in-out
+      dark:hover:bg-white
+      dark:hover:text-primary-foreground
+      dark:hover:border-primary
        `,
     },
     isDisabled: {

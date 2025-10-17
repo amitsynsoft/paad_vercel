@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 export default function ArtistsAndArtworksHeader({ artistTitle, artistLink, artworkTitle, artworkLink, actions }: ArtistsAndArtworksProps) {
   const pathName = usePathname()
   return (
-    <div className="flex justify-between mb-12">
-      <div className="flex gap-6">
+    <div className="flex justify-between mb-20">
+      <div className="flex gap-8">
         <Link href={artistLink || paths.manarArtists()} className={`font-semibold text-lg ${pathName === paths.manarArtists() ? 'underline ' : ''}`}>
           {artistTitle}
         </Link>

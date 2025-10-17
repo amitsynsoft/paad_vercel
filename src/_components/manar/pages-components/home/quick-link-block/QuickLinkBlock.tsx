@@ -21,9 +21,7 @@ export default function QuickLinkBlock({ data, positions }: { data: any; positio
         {navItems?.map((item: any, index: number) => (
           <Link
             key={index}
-            // Todo: remove this hard code url
-            // href={item?.href || ''}
-            href={'#'}
+            href={item?.href || ''}
             className={`absolute flex flex-col text-center items-center gap-2 group hover:opacity-100 focus:opacity-100 active:opacity-100 !opacity-100
               ${item.position === 'plan' ? 'top-4 right-[18%] translate-x-[50%] md:top-0 md:right-10 md:translate-x-0' : ''}
               ${item.position === 'artists' ? 'top-[15%] left-[0%] md:top-15 md:left-[48%] md:-translate-x-1/2' : ''}

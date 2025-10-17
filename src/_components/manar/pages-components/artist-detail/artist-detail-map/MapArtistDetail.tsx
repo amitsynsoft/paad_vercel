@@ -1,61 +1,20 @@
+import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
 import ImageGuard from '@/_components/manar/_ui/image-guard/ImageGuard.component'
 import Section from '@/_components/manar/_ui/section/Section'
 import { GoogleMap, LoadScript, Marker, OverlayView } from '@react-google-maps/api'
 import { X } from 'lucide-react'
+import Link from 'next/link'
 import React, { useRef, useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
+import MapOverviewCard from '@/_components/manar/_ui/cards/map-overview-card/MapOverviewCard'
 
 const containerStyle = { width: '100%', height: '800px' }
 const defaultCenter = { lat: 24.4539, lng: 54.3773 }
 
-// const artworks = [
-//   {
-//     title: 'CONTINGENT OBJECT, SALINE BODIES: THE LANDSCAPE AS HARVEST',
-//     slug: 'contingent-object-saline-bodies-the-landscape-as-harvest',
-//     images: [],
-//     location: {
-//       id: 6643,
-//       name: 'Shaikha Al Mazrou',
-//       lat: '24.541586',
-//       lon: '54.495752',
-//       address: '',
-//       description: '',
-//       city: 'Jubail Island',
-//       locationType: null,
-//       icon: '/media/ckvj2tie/artworks.svg',
-//       hoverIcon: '/media/glephtxm/artworks_hover.svg',
-//       categories: [
-//         {
-//           type: 'Jubail Island',
-//         },
-//       ],
-//     },
-//   },
-//   {
-//     title: 'CONTINGENT OBJECT, SALINE BODIES: THE LANDSCAPE AS HARVEST',
-//     slug: 'contingent-object-saline-bodies-the-landscape-as-harvest',
-//     images: [],
-//     location: {
-//       id: 6644,
-//       name: 'Shaikha Al Mazrou',
-//       lat: '24.542826',
-//       lon: '54.495752',
-//       address: '',
-//       description: '',
-//       city: 'Jubail Island',
-//       locationType: null,
-//       icon: '/media/ckvj2tie/artworks.svg',
-//       hoverIcon: '/media/glephtxm/artworks_hover.svg',
-//       categories: [
-//         {
-//           type: 'Jubail Island',
-//         },
-//       ],
-//     },
-//   },
-// ]
-
 export default function MapArtistDetail({ artworks }: { artworks: any }) {
   const mapRef = useRef<google.maps.Map | null>(null)
+  const locale = useLocale()
+  const t = useTranslations('CommonButton')
   const [selected, setSelected] = useState<any | null>(null)
   const [googleReady, setGoogleReady] = useState(false)
   const [hoveredMarkerId, setHoveredMarkerId] = useState<string | null>(null)
@@ -68,7 +27,7 @@ export default function MapArtistDetail({ artworks }: { artworks: any }) {
   }
 
   return (
-    <Section>
+    <Section className="!pt-20">
       <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!} onLoad={() => setGoogleReady(true)}>
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -103,29 +62,14 @@ export default function MapArtistDetail({ artworks }: { artworks: any }) {
                 >
                   {selected?.location?.id === item?.location?.id && (
                     <OverlayView position={{ lat, lng }} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-                      <div className="bg-primary dark:bg-background text-white p-4 w-64 flex flex-col gap-4 -translate-x-1/2">
-                        <div className="flex justify-between items-start gap-2">
-                          <h3 className="font-bold text-base">{selected?.location?.name}</h3>
-                          <div onClick={() => setSelected(null)} className=" border-white border-2 rounded-full p-2 cursor-pointer">
-                            <ImageGuard src="/x-button.svg" alt="image" height={12} width={12} />
-                          </div>
-                        </div>
-                        {selected?.images?.length && (
-                          <div className="relative h-[180px] w-full">
-                            <ImageGuard src={selected?.images?.[0]?.card?.url} alt="image" fill />
-                          </div>
-                        )}
-                        <div className="flex justify-start">
-                          <a
-                            href={`https://www.google.com/maps/dir/?api=1&origin=my+location&destination=${selected?.location?.lat},${selected?.location?.lon}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-medium text-white border-2 border-white rounded-full px-4 py-1 cursor-pointer"
-                          >
-                            Directions
-                          </a>
-                        </div>
-                      </div>
+                      <MapOverviewCard
+                        name={selected?.location?.name}
+                        city={selected?.location?.city || ''}
+                        imageUrl={selected?.images?.[0]?.card?.url}
+                        onClose={() => setSelected(null)}
+                        lat={selected?.location?.lat}
+                        lon={selected?.location?.lon}
+                      />
                     </OverlayView>
                   )}
                 </Marker>

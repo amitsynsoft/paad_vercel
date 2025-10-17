@@ -15,7 +15,7 @@ export default function Navigation({ menuItems, partners }: NavigationProps) {
         {menuItems &&
           menuItems?.slice(0, 6).map((item, index: number) => (
             <Link key={index} href={item?.url ?? '#'}>
-              <span className="text-[18px] md:text-[20px]">{item?.label}</span>
+              <span className="text-[18px] md:text-[20px] hover:underline">{item?.label}</span>
             </Link>
           ))}
       </div>

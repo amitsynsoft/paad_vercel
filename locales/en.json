@@ -1,8 +1,11 @@
 {
+  "CommonButton": {
+    "directions": "Directions"
+  },
   "Error": {
     "SomethingWentWrong": "Something went wrong",
     "NotFoundTitle": "Oops! The page you are looking for doesn’t exist.",
-    "NotFoundMessage": "You might have typed the wrong URL or the page has moved.",
+    "NotFoundMessage": "Sorry, we can't find that page. You'll find lots to explore on the home page.",
     "GoBack": "Go Back"
   },
   "Manar": {

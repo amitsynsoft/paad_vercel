@@ -1,8 +1,11 @@
 {
+  "CommonButton": {
+    "directions": "الاتجاهات"
+  },
   "Error": {
     "SomethingWentWrong": "حدث خطأ ما",
     "NotFoundTitle": "أُووبس! الصفحة التي تبحث عنها غير موجودة.",
-    "NotFoundMessage": "ربما تكون قد كتبت عنوان URL خاطئًا أو تم نقل الصفحة.",
+    "NotFoundMessage": "عذرًا، لا يمكننا العثور على تلك الصفحة. ستجد الكثير لاستكشافه على الصفحة الرئيسية.",
     "GoBack": "عُد"
   },
   "Manar": {

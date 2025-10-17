@@ -18,7 +18,7 @@
 /* Responsive overrides */
 
 /* For screen <= 1366px */
-@media (max-width: 1366px) {
+@media (max-width: 1300px) {
   :root {
     --text-base: 18px;
     --text-base--line-height: 1.4;

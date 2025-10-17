@@ -1,15 +1,11 @@
 'use client'
 
 import React from 'react'
-import { Button } from '@heroui/react'
-
 import Section from '@/_components/manar/_ui/section/Section'
 import ArtistCard from '@/_components/manar/_ui/cards/artist-card/ArtistCard'
 import NoRecordFound from '@/_components/manar/_ui/no-record-found/NoRecordFound'
 import ArtistsAndArtworksHeader from '@/_layouts/manar/pageHeaders/Artists&Artworks'
 import { paths } from '@/navigate/paths'
-import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
-import Link from 'next/link'
 
 export default function ArtistsClient({ data }: { data: any }) {
   return (
@@ -37,7 +33,9 @@ export default function ArtistsClient({ data }: { data: any }) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-6 md:gap-y-17 md:gap-x-8">{data?.artists && data.artists.map((item: any, index: number) => <ArtistCard key={index} artistData={item} />)}</div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-6 md:gap-y-17 md:gap-x-8">
+        {data?.artists && data.artists.map((item: any, index: number) => <ArtistCard height="h-100" key={index} artistData={item} />)}
+      </div>
     </Section>
   )
 }

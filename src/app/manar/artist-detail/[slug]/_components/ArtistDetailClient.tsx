@@ -17,7 +17,7 @@ export default function ArtistDetailClient({ data }: { data: any }) {
   const locale = useLocale()
   return (
     <div>
-      <Section className="pt-8 pb-16 ">
+      <Section className="!pt-10 !pb-16">
         {/* TODO: hardcoded */}
         <ManarButton as={Link} color="primaryOutlineHover" href={paths.manarArtists()}>
           <ArrowLeft />

@@ -6,6 +6,7 @@ import { LoadScript, GoogleMap } from '@react-google-maps/api'
 import { useMapFilters } from './hooks/useMapFilters.hook'
 import MapFilters from './components/MapHomePageFilters'
 import MapMarkers from './components/MapHomePageMarkers'
+import { useLocale } from 'next-intl'
 
 const containerStyle = { width: '100%', height: '800px' }
 const defaultCenter = { lat: 24.4539, lng: 54.3773 }
@@ -13,13 +14,14 @@ const defaultCenter = { lat: 24.4539, lng: 54.3773 }
 export default function MapHomePage({ locationData, showFilterButtons = true }: { locationData: any; showFilterButtons?: boolean }) {
   const { selectedCity, setSelectedCity, selectedType, setSelectedType, cities, locationTypes, filteredLocations, allLocations } = useMapFilters(locationData)
 
+  const locale = useLocale()
   const [activeTab, setActiveTab] = useState<'locations' | 'filter' | null>(null)
   const [googleReady, setGoogleReady] = useState(false)
   const [selected, setSelected] = useState<any | null>(null)
   const mapRef = useRef<google.maps.Map | null>(null)
 
   return (
-    <div className="relative w-full h-full">
+    <div key={locale} className="relative w-full h-full" dir="ltr">
       {showFilterButtons && (
         <MapFilters
           cities={cities}

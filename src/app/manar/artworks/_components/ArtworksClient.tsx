@@ -30,9 +30,9 @@ export default function ArtworksClient({ artworksData }: { artworksData: any }) 
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-17">
         {artworksData?.artworks?.map((artwork: any, index: number) => (
-          <ArtworkCard key={index} artworkData={artwork} className="bg-cyan-100" />
+          <ArtworkCard key={index} artworkData={artwork} className="bg-cyan-100" height="h-80" />
         ))}
       </div>
     </Section>
