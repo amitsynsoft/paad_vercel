@@ -4,20 +4,178 @@
   },
   "Error": {
     "SomethingWentWrong": "Something went wrong",
-    "NotFoundTitle": "Oops! The page you are looking for doesn’t exist.",
+    "NotFoundTitle": "Oops! The page you are looking for doesn't exist.",
     "NotFoundMessage": "Sorry, we can't find that page. You'll find lots to explore on the home page.",
     "GoBack": "Go Back"
   },
   "Manar": {
+    "Footer": {
+      "socials": {
+        "followUs": "Follow us on social media"
+      }
+    },
+    "Header": {
+      "Menu": "Menu"
+    },
+    "HomePage": {
+      "MapSection": {
+        "Locations": "Locations",
+        "Filter": "Filter"
+      }
+    },
+    "UnderConstruction": {
+      "title": "UNDER CONSTRUCTION",
+      "description": "Check back soon!",
+      "buttonText": "Home"
+    },
+    "NewsDetail": {
+      "NewsNotFound": "News not found",
+      "NewsNotFoundMessage": "The news you are looking for does not exist.",
+      "NewsNotFoundActionLabel": "Go Back",
+      "AllNews": "All News"
+    },
+    "PageHeaders": {
+      "artists": "Artists",
+      "artworks": "Artworks",
+      "filterOptions": {
+        "locations": "Locations",
+        "keywords": "Keywords",
+        "medium": "Medium",
+        "types": "Types",
+        "participatingArtists": "Participating artists"
+      }
+    },
+    "ArtistSection": {
+      "Artist": "Artist",
+      "Artists": "Artists"
+    },
+    "ArtistDetail": {
+      "AllArtists": "All Artists",
+      "ArtistNotFound": "Artist not found",
+      "ArtistNotFoundMessage": "The artist you are looking for does not exist.",
+      "ArtistNotFoundActionLabel": "Go Back"
+    },
+    "CuratorDetail": {
+      "AllCurators": "All Curators",
+      "CuratorNotFound": "Curator not found",
+      "CuratorNotFoundMessage": "The curator you are looking for does not exist.",
+      "CuratorNotFoundActionLabel": "Go Back"
+    },
+    "ArtworkSection": {
+      "Artwork": "Artwork",
+      "Artworks": "Artworks"
+    },
     "ArtworkDetail": {
+      "AllArtworks": "All Artworks",
       "ArtworkNotFound": "Artwork not found",
       "ArtworkNotFoundMessage": "The artwork you are looking for does not exist.",
       "ArtworkNotFoundActionLabel": "Go Back"
     },
-    "ArtistDetail": {
-      "ArtistNotFound": "Artist not found",
-      "ArtistNotFoundMessage": "The artist you are looking for does not exist.",
-      "ArtistNotFoundActionLabel": "Go Back"
+    "ProgrammeSection": {
+      "ProgrammeTitle": "Programme",
+      "PastProgrammeTitle": "Past",
+      "UpcomingProgrammeTitle": "Upcoming",
+      "TodayProgrammeTitle": "Today",
+      "filters": {
+        "keywords": "Keywords",
+        "date": "Date",
+        "location": "Location",
+        "types": "Types",
+        "participatingArtists": "Participating artists"
+      },
+      "NoRecordFound": {
+        "title": "No Record Found",
+        "message": "We couldn’t find any data to display right now. Please try again later or adjust your filters."
+      }
+    },
+    "ProgrammeDetail": {
+      "accessibilitySectionTitle": "Accessibility",
+      "participatingArtistsSectionTitle": "Participating artists",
+      "AllEvents": "All Events",
+      "AllProgrammes": "All Programme"
+    },
+    "ContactAndPress": {
+      "GeneralInquiry": {
+        "title": "General inquiries",
+        "fullName": "Full Name*",
+        "subject": "Subject",
+        "email": "Email*",
+        "message": "Message",
+        "submitBtnText": "Submit"
+      },
+      "generalInquiryValidation": {
+        "fullNameRequired": "Full Name is required",
+        "subjectRequired": "Subject is required",
+        "emailRequired": "Email is required",
+        "messageRequired": "Message is required",
+        "emailInvalid": "Please enter a valid email",
+        "messageMaxLength": "Message must be less than 300 characters",
+        "fullNameMaxLength": "Full Name must be less than 100 characters",
+        "subjectMaxLength": "Subject must be less than 100 characters",
+        "recaptcha": "reCAPTCHA verification failed. Please try again.",
+        "SomethingWentWrong": "Something went wrong"
+      },
+      "Press": {
+        "title": "Press",
+        "description": "Press accreditation and visits are available, please complete the contact form.",
+        "buttonText": {
+          "downloadKit": "Download press kit",
+          "mediaResources": "Media pack"
+        }
+      },
+      "PressRegistration": {
+        "title": "Press registration",
+        "fullName": "Full Name*",
+        "city": "City of residence*",
+        "email": "Email*",
+        "publicationName": "Name of publication / media outlet*",
+        "contactNumber": "Contact Number*",
+        "publicationCountry": "Country base of publication*",
+        "position": "Position*",
+        "mediaType": "Type of media outlet*",
+        "residenceCountry": "Country of Residence*",
+        "publicationWebsite": "Publication / media outlet website*",
+        "submitBtnText": "Submit"
+      },
+      "pressRegistrationValidation": {
+        "fullNameRequired": "Full Name is required",
+        "cityRequired": "City of residence is required",
+        "emailRequired": "Email is required",
+        "publicationNameRequired": "Name of publication / media outlet is required",
+        "contactNumberRequired": "Contact Number is required",
+        "publicationCountryRequired": "Country base of publication is required",
+        "positionRequired": "Position is required",
+        "mediaTypeRequired": "Type of media outlet is required",
+        "residenceCountryRequired": "Country of Residence is required",
+        "publicationWebsiteRequired": "Publication / media outlet website is required",
+        "emailInvalid": "Please enter a valid email",
+        "fullNameMaxLength": "Full Name must be less than 100 characters",
+        "cityMaxLength": "City must be less than 100 characters",
+        "publicationNameMaxLength": "Publication Name must be less than 100 characters",
+        "InvalidContactNumber": "Invalid contact number",
+        "publicationCountryMaxLength": "Country base of publication must be less than 100 characters",
+        "positionMaxLength": "Position must be less than 100 characters",
+        "mediaTypeMaxLength": "Type of media outlet must be less than 100 characters",
+        "residenceCountryMaxLength": "Country of Residence must be less than 100 characters",
+        "publicationWebsiteMaxLength": "Publication / media outlet website must be less than 100 characters",
+        "recaptcha": "reCAPTCHA verification failed. Please try again.",
+        "SomethingWentWrong": "Something went wrong"
+      }
+    },
+    "calendar": {
+      "noEvents": "No Events",
+      "noEventsMessage": "No events found for the selected date.",
+      "loadingProgrammes": "Loading programmes...",
+      "failedToLoadProgrammes": "Failed to load programmes.",
+      "close": "CLOSE"
+    },
+    "search":{
+      "placeholderText":"Search term",
+     "NoRecordFound":"No results found.",
+     "searchResults":"results",
+     "artists":"Artists",
+     "artworks":"Artworks",
+     "programmes":"Programmes"
     }
   }
 }

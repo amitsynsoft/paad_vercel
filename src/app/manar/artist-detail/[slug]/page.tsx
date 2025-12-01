@@ -1,5 +1,6 @@
 import React from 'react'
 import { getLocale } from 'next-intl/server'
+
 import ArtistDetailClient from './_components/ArtistDetailClient'
 import { getArtistDetailBySlug } from '@/services/manar/artists/getArtistDetailBySlug'
 

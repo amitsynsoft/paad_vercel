@@ -1,24 +1,46 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { LoadScript, GoogleMap } from '@react-google-maps/api'
-
-import { useMapFilters } from './hooks/useMapFilters.hook'
-import MapFilters from './components/MapHomePageFilters'
-import MapMarkers from './components/MapHomePageMarkers'
 import { useLocale } from 'next-intl'
+import { useState, useRef, useEffect } from 'react'
 
-const containerStyle = { width: '100%', height: '800px' }
-const defaultCenter = { lat: 24.4539, lng: 54.3773 }
+import useMapAutoFit from './hooks/useMapAutoFit.hook'
+import MapMarkers from './components/MapHomePageMarkers'
+import MapFilters from './components/MapHomePageFilters'
+import GoogleMapWrapper from '../google-map-wrapper/GoogleMapWrapper'
+import { useMapFilters } from './hooks/useMapFilters.hook'
+import { defaultZoomNumber_16, getFitBounds, zoomLevel } from '@/utils'
 
-export default function MapHomePage({ locationData, showFilterButtons = true }: { locationData: any; showFilterButtons?: boolean }) {
+export default function MapHomePage({ locationData, showFilterButtons = true }: MapHomePageProps) {
   const { selectedCity, setSelectedCity, selectedType, setSelectedType, cities, locationTypes, filteredLocations, allLocations } = useMapFilters(locationData)
 
   const locale = useLocale()
+  const mapRef = useRef<google.maps.Map | null>(null)
+
   const [activeTab, setActiveTab] = useState<'locations' | 'filter' | null>(null)
   const [googleReady, setGoogleReady] = useState(false)
   const [selected, setSelected] = useState<any | null>(null)
-  const mapRef = useRef<google.maps.Map | null>(null)
+  const [currentLocale, setCurrentLocale] = useState(locale)
+
+  useMapAutoFit({
+    mapRef,
+    googleReady,
+    filteredLocations,
+    allLocations,
+    selectedCity,
+    getFitBounds,
+    zoomLevel,
+    defaultZoom: defaultZoomNumber_16,
+  })
+
+  useEffect(() => {
+    if (locale !== currentLocale) {
+      setSelected(null)
+      setCurrentLocale(locale)
+      setActiveTab(null)
+      setSelectedCity(null)
+      setSelectedType(null)
+    }
+  }, [locale])
 
   return (
     <div key={locale} className="relative w-full h-full" dir="ltr">
@@ -35,19 +57,24 @@ export default function MapHomePage({ locationData, showFilterButtons = true }: 
         />
       )}
 
-      <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!} onLoad={() => setGoogleReady(true)}>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={defaultCenter}
-          zoom={10}
-          options={{ mapTypeControl: false, fullscreenControl: false }}
-          onLoad={(map) => {
-            mapRef.current = map
-          }}
-        >
-          <MapMarkers locations={filteredLocations} selected={selected} setSelected={setSelected} googleReady={googleReady} />
-        </GoogleMap>
-      </LoadScript>
+      <GoogleMapWrapper
+        onMapLoad={(map) => {
+          mapRef.current = map
+          const bounds = getFitBounds(allLocations)
+          if (bounds) {
+            map.fitBounds(bounds)
+            zoomLevel(map, defaultZoomNumber_16)
+          }
+        }}
+        onGoogleReady={(ready) => setGoogleReady(ready)}
+      >
+        <MapMarkers locations={filteredLocations} selected={selected} setSelected={setSelected} googleReady={googleReady} />
+      </GoogleMapWrapper>
     </div>
   )
+}
+
+type MapHomePageProps = {
+  locationData: any
+  showFilterButtons?: boolean
 }

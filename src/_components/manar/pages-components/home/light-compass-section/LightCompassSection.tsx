@@ -1,10 +1,11 @@
 'use client'
 
 import React from 'react'
-import Section from '@/_components/manar/_ui/section/Section'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import ReactMarkdown from 'react-markdown'
+
+import Section from '@/_components/manar/_ui/section/Section'
 
 export default function LightCompassSection({ data }: { data: any }) {
   return (
@@ -16,11 +17,7 @@ export default function LightCompassSection({ data }: { data: any }) {
         </div>
 
         <span className="text-foreground underline font-bold text-base">
-          <Link
-            // Todo: remove this hard code url
-            // href={data?.link?.url || ''}
-            href={'#'}
-          >
+          <Link aria-label={`${data?.link?.label} about Manar`} href={data?.link?.url || '#'}>
             {data?.link?.label || ''}
           </Link>
         </span>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { getLocale } from 'next-intl/server'
+
 import ArtworkDetailClient from './_components/ArtworkDetailClient'
 import { getArtworkDetailBySlug } from '@/services/manar/artworks/getArtworkDetailBySlug'
 

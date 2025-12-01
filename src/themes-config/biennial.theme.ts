@@ -8,11 +8,24 @@ export const biennialTheme = {
       },
       primary: {
         foreground: '#fff',
-        DEFAULT: '#07aeed',
+        '100': '#dff4ff',
+        DEFAULT: '#23b7ef',
       },
       secondary: {
         foreground: '#fff',
         DEFAULT: '#d946ef',
+      },
+      warning: {
+        foreground: '#fff',
+        DEFAULT: '#F7E228',
+      },
+      danger: {
+        foreground: '#fff',
+        DEFAULT: '#FF2E2E',
+      },
+      success: {
+        foreground: '#fff',
+        DEFAULT: '#8AE842',
       },
       background: '#ffffff',
       foreground: '#000000',
@@ -29,6 +42,18 @@ export const biennialTheme = {
         large: '0px',
       },
       disabledOpacity: '0.5',
+      fontSize: {
+        tiny: '0.9rem', // text-tiny
+        small: '1rem', // text-small
+        medium: '1.375rem', // text-medium
+        large: '3.375rem', // text-large
+      },
+      lineHeight: {
+        tiny: '1.25rem',
+        small: '1.5rem',
+        medium: '2rem',
+        large: '3rem',
+      },
     },
   },
   biennialDark: {
@@ -40,11 +65,23 @@ export const biennialTheme = {
       },
       primary: {
         foreground: '#fff',
-        DEFAULT: '#07aeed',
+        DEFAULT: '#23b7ef',
       },
       secondary: {
         foreground: '#fff',
         DEFAULT: '#d946ef',
+      },
+      warning: {
+        foreground: '#fff',
+        DEFAULT: '#F7E228',
+      },
+      danger: {
+        foreground: '#fff',
+        DEFAULT: '#FF2E2E',
+      },
+      success: {
+        foreground: '#fff',
+        DEFAULT: '#8AE842',
       },
       background: '#000000',
       foreground: '#ffffff',
@@ -54,6 +91,18 @@ export const biennialTheme = {
 
     layout: {
       disabledOpacity: '0.5',
+      fontSize: {
+        tiny: '0.9rem', // text-tiny
+        small: '1.50rem', // text-small
+        medium: '1.375rem', // text-medium
+        large: '3.375rem', // text-large
+      },
+      lineHeight: {
+        tiny: '1.25rem',
+        small: '1.5rem',
+        medium: '2rem',
+        large: '3rem',
+      },
     },
   },
 }

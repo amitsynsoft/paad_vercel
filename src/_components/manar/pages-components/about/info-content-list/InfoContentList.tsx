@@ -2,6 +2,8 @@
 import React from 'react'
 import Image from 'next/image'
 import type { InfoContentListComponent } from '@/dto/manar'
+import ImageGuard from '@/_components/_globalUI/image-guard/ImageGuard.component'
+import { placeholderImageLoading } from '@/utils'
 
 const InfoContentList: React.FC<{ data: InfoContentListComponent }> = ({ data: { content } }) => {
   return (
@@ -9,7 +11,7 @@ const InfoContentList: React.FC<{ data: InfoContentListComponent }> = ({ data: {
       {content.map((item, index: number) => (
         <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${item?.align === 'end' ? 'md:flex-row-reverse' : ''}`}>
           <div className="w-full md:w-1/2">
-            <Image src={item?.images?.portrait?.url || ''} alt={item?.title} width={600} height={600} className="rounded-2xl object-cover w-full h-auto" />
+            <ImageGuard src={item?.images?.card?.url || ''} alt={item?.title} width={600} height={600} className="rounded-2xl object-cover w-full h-auto" placeholder="blur" blurDataURL={placeholderImageLoading} />
           </div>
           <div className="w-full md:w-1/2 space-y-4">
             <h3 className="text-lg font-semibold">{item?.title}</h3>

@@ -9,15 +9,173 @@
     "GoBack": "عُد"
   },
   "Manar": {
+    "Footer": {
+      "socials": {
+        "followUs": "تابعونا على وسائل التواصل الاجتماعي"
+      }
+    },
+    "Header": {
+      "Menu": "قائمة طعام"
+    },
+    "HomePage": {
+      "MapSection": {
+        "Locations": "المواقع",
+        "Filter": "فلتر"
+      }
+    },
+    "UnderConstruction": {
+      "title": "تحت الإنشاء",
+      "description": "التحقق مرة أخرى قريبا!",
+      "buttonText": "بيت"
+    },
+    "NewsDetail": {
+      "NewsNotFound": "لم يتم العثور على الأخبار",
+      "NewsNotFoundMessage": "الأخبار التي تبحث عنها غير موجودة.",
+      "NewsNotFoundActionLabel": "عُد",
+      "AllNews": "كل الأخبار"
+    },
+    "PageHeaders": {
+      "artists": "الفنانين",
+      "artworks": "الأعمال الفنية",
+      "filterOptions": {
+        "locations": "المواقع",
+        "keywords": "الكلمات الرئيسية",
+        "medium": "واسطة",
+        "types": "أنواع",
+        "participatingArtists": "الفنانين المشاركين"
+      }
+    },
+    "ArtistSection": {
+      "Artist": "فنان",
+      "Artists": "الفنانين"
+    },
+    "ArtistDetail": {
+      "AllArtists": "جميع الفنانين",
+      "ArtistNotFound": "لم يتم العثور على الفنان",
+      "ArtistNotFoundMessage": "الفنان الذي تبحث عنه غير موجود.",
+      "ArtistNotFoundActionLabel": "عُد"
+    },
+    "CuratorDetail": {
+      "AllCurators": "جميع القيمين",
+      "CuratorNotFound": "لم يتم العثور على المنسق",
+      "CuratorNotFoundMessage": "المنسق الذي تبحث عنه غير موجود.",
+      "CuratorNotFoundActionLabel": "عُد"
+    },
+    "ArtworkSection": {
+      "Artwork": "عمل فني",
+      "Artworks": "الأعمال الفنية"
+    },
     "ArtworkDetail": {
+      "AllArtworks": "جميع الأعمال الفنية",
       "ArtworkNotFound": "لم يتم العثور على العمل الفني",
       "ArtworkNotFoundMessage": "العمل الفني الذي تبحث عنه غير موجود.",
       "ArtworkNotFoundActionLabel": "عُد"
     },
-    "ArtistDetail": {
-      "ArtistNotFound": "لم يتم العثور على الفنان",
-      "ArtistNotFoundMessage": "الفنان الذي تبحث عنه غير موجود.",
-      "ArtistNotFoundActionLabel": "عُد"
+    "ProgrammeSection": {
+      "ProgrammeTitle": "برنامج",
+      "PastProgrammeTitle": "ماضي",
+      "UpcomingProgrammeTitle": "القادمة",
+      "TodayProgrammeTitle": "اليوم",
+      "filters": {
+        "keywords": "الكلمات الرئيسية",
+        "date": "تاريخ",
+        "location": "موقع",
+        "types": "أنواع",
+        "participatingArtists": "الفنانين المشاركين"
+      },
+      "NoRecordFound": {
+        "title": "لم يتم العثور على سجل",
+        "message": "لم نتمكن من العثور على أي بيانات لعرضها الآن. يرجى المحاولة مرة أخرى لاحقًا أو تعديل عوامل التصفية."
+      }
+    },
+    "ProgrammeDetail": {
+      "accessibilitySectionTitle": "إمكانية الوصول",
+      "participatingArtistsSectionTitle": "الفنانين المشاركين",
+      "AllEvents": "جميع الأحداث",
+      "AllProgrammes": "كل البرنامج"
+    },
+    "ContactAndPress": {
+      "GeneralInquiry": {
+        "title": "استفسارات عامة",
+        "fullName": "الاسم الكامل*",
+        "subject": "موضوع",
+        "email": "بريد إلكتروني*",
+        "message": "رسالة",
+        "submitBtnText": "يُقدِّم"
+      },
+      "generalInquiryValidation": {
+        "fullNameRequired": "الاسم الكامل مطلوب",
+        "subjectRequired": "الموضوع مطلوب",
+        "emailRequired": "البريد الإلكتروني مطلوب",
+        "messageRequired": "الرسالة مطلوبة",
+        "emailInvalid": "الرجاء إدخال بريد إلكتروني صالح",
+        "messageMaxLength": "يجب أن تكون الرسالة أقل من 300 حرف",
+        "fullNameMaxLength": "يجب أن يكون الاسم الكامل أقل من 100 حرف",
+        "subjectMaxLength": "يجب أن يكون الموضوع أقل من 100 حرف",
+        "recaptcha": "فشل التحقق من reCAPTCHA. يرجى المحاولة مرة أخرى.",
+        "SomethingWentWrong": "حدث خطأ ما"
+      },
+      "Press": {
+        "title": "الصحافة",
+        "description": "اعتماد الصحفيين وتنظيم الزيارات متاح. يُرجى تعبئة نموذج الاتصال المخصّص لذلك.",
+        "buttonText": {
+          "downloadKit": "تحميل المجموعة الصحفية",
+          "mediaResources": "حقيبة إعلامية"
+        }
+      },
+      "PressRegistration": {
+        "title": "اضغط على التسجيل",
+        "fullName": "الاسم الكامل*",
+        "city": "مدينة الإقامة*",
+        "email": "بريد إلكتروني*",
+        "publicationName": "اسم جهة النشر/الوسيلة الإعلامية*",
+        "contactNumber": "رقم الاتصال*",
+        "publicationCountry": "قاعدة النشر في الدولة*",
+        "position": "موضع*",
+        "mediaType": "نوع منفذ الوسائط*",
+        "residenceCountry": "بلد الإقامة*",
+        "publicationWebsite": "موقع النشر/الوسيلة الإعلامية*",
+        "submitBtnText": "يُقدِّم"
+      },
+      "pressRegistrationValidation": {
+        "fullNameRequired": "الاسم الكامل مطلوب",
+        "cityRequired": "مدينة الإقامة مطلوبة",
+        "emailRequired": "البريد الإلكتروني مطلوب",
+        "publicationNameRequired": "اسم النشر/وسيلة الإعلام مطلوب",
+        "contactNumberRequired": "رقم الاتصال مطلوب",
+        "publicationCountryRequired": "مطلوب قاعدة بلد النشر",
+        "positionRequired": "المنصب مطلوب",
+        "mediaTypeRequired": "نوع منفذ الوسائط مطلوب",
+        "residenceCountryRequired": "بلد الإقامة مطلوب",
+        "publicationWebsiteRequired": "مطلوب موقع للنشر / وسائل الإعلام",
+        "emailInvalid": "الرجاء إدخال بريد إلكتروني صالح",
+        "fullNameMaxLength": "يجب أن يكون الاسم الكامل أقل من 100 حرف",
+        "cityMaxLength": "يجب أن تكون المدينة أقل من 100 حرف",
+        "publicationNameMaxLength": "يجب أن يكون اسم المنشور أقل من 100 حرف",
+        "InvalidContactNumber": "رقم الاتصال غير صالح",
+        "publicationCountryMaxLength": "يجب أن تكون قاعدة النشر القطرية أقل من 100 حرف",
+        "positionMaxLength": "يجب أن يكون الموضع أقل من 100 حرف",
+        "mediaTypeMaxLength": "يجب أن يكون نوع منفذ الوسائط أقل من 100 حرف",
+        "residenceCountryMaxLength": "يجب أن يكون بلد الإقامة أقل من 100 حرف",
+        "publicationWebsiteMaxLength": "يجب أن لا يزيد طول موقع النشر/الوسيلة الإعلامية عن 100 حرف",
+        "recaptcha": "فشل التحقق من reCAPTCHA. يرجى المحاولة مرة أخرى.",
+        "SomethingWentWrong": "حدث خطأ ما"
+      }
+    },
+    "calendar": {
+      "noEvents": "لا توجد أحداث",
+      "noEventsMessage": "لم يتم العثور على أحداث للتاريخ المحدد.",
+      "loadingProgrammes": "جارٍ تحميل البرامج...",
+      "failedToLoadProgrammes": "فشل في تحميل البرامج.",
+      "close": "يغلق"
+    },
+    "search": {
+      "placeholderText": "مصطلح البحث",
+      "NoRecordFound": "لم يتم العثور على نتائج",
+      "searchResults": "نتائج",
+      "artists": "الفنانين",
+      "artworks": "الأعمال الفنية",
+      "programmes": "البرامج"
     }
   }
 }

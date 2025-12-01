@@ -8,8 +8,14 @@ const { abuDhabiTheme } = require('./src/themes-config/abu-dhabi.theme')
 module.exports = {
   content: ['./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './app/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    // screens: {
+    //   md: '1280px',
+    //   lg: '1440px',
+    //   xl: '1600px',
+    //   '2xl': '1800px',
+    // },
     container: {
-      center: true, // centers the container by default
+      center: true,
     },
     extend: {
       fontFamily: {
@@ -29,7 +35,7 @@ module.exports = {
         'biennial-dark': biennialTheme.biennialDark,
 
         // manar
-        'manar-light': { ...manarTheme.manarLight },
+        'manar-light': manarTheme.manarLight,
         'manar-dark': manarTheme.manarDark,
 
         // abu-dhabi

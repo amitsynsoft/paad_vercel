@@ -1,40 +1,31 @@
 'use client'
 import React from 'react'
-import { Button } from '@heroui/react'
+import { useLocale, useTranslations } from 'next-intl'
 
 import Section from '@/_components/manar/_ui/section/Section'
 import ArtworkCard from '@/_components/manar/_ui/cards/artwork-card/ArtworkCard'
-import ArtistsAndArtworksHeader from '@/_layouts/manar/pageHeaders/Artists&Artworks'
+import ArtistsAndArtworksHeader from '@/_components/manar/pageHeaders/Artists&Artworks'
 import { paths } from '@/navigate/paths'
-import { ManarButton } from '@/_components/manar/_ui/buttons/ManarButton'
-import Link from 'next/link'
+import ArtworkFilterOptions from './ArtworkFilterOptions.component'
+import NoRecordFound from '@/_components/manar/_ui/no-record-found/NoRecordFound'
 
 export default function ArtworksClient({ artworksData }: { artworksData: any }) {
+  const locale = useLocale()
+  const t = useTranslations('Manar.PageHeaders')
+  const rf = useTranslations('Manar.ProgrammeSection.NoRecordFound')
+
   return (
     <Section className="container pt-8 pb-16">
       {/* Todo: create a header common */}
-      <ArtistsAndArtworksHeader
-        artistTitle="Artists"
-        artworkTitle="Artworks"
-        artistLink={paths.manarArtists()}
-        artworkLink={paths.manarArtworks()}
-        actions={
-          <>
-            {/* <ManarButton as={Link} color="primaryOutlineHover" href={'#'}>
-              Location
-            </ManarButton>
-            <ManarButton as={Link} color="primaryOutlineHover" href={'#'}>
-              Keywords
-            </ManarButton> */}
-          </>
-        }
-      />
+      <ArtistsAndArtworksHeader artistTitle={t('artists')} artworkTitle={t('artworks')} artistLink={paths.manarArtists()} artworkLink={paths.manarArtworks()} actions={<ArtworkFilterOptions />} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-17">
         {artworksData?.artworks?.map((artwork: any, index: number) => (
-          <ArtworkCard key={index} artworkData={artwork} className="bg-cyan-100" height="h-80" />
+          <ArtworkCard key={`${locale}_${index}_${artwork?.artist?.name}`} artworkData={artwork} artist={artwork?.artist?.name || ''} className="bg-cyan-100" height="h-80" />
         ))}
       </div>
+
+      {artworksData?.artworks?.length === 0 && <NoRecordFound title={rf('title')} message={rf('message')} />}
     </Section>
   )
 }

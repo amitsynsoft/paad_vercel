@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
+import { useLocale } from 'next-intl'
 
 export function useMapFilters(locationData: any) {
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
   const [selectedType, setSelectedType] = useState<string | null>(null)
+  const locale = useLocale()
 
   const cities = useMemo(() => locationData?.cities?.map((city: any) => city.name) || [], [locationData])
 
@@ -20,12 +22,25 @@ export function useMapFilters(locationData: any) {
 
   const filteredLocations = useMemo(() => {
     let result = allLocations
-    if (selectedCity) result = result.filter((loc: any) => loc.location.city?.trim().toLowerCase() === selectedCity.trim().toLowerCase())
+    // as per this logic by backend team
+    if (selectedCity) {
+      const cityName = selectedCity.trim().toLowerCase()
+      const cityLocations = result.filter((loc: any) => loc.location.city?.trim().toLowerCase() === cityName)
+      // TODO: remove location type to  type
+      const nonArtworkLocations = allLocations.filter((item: any) => item.locationType !== (locale === 'ar' ? 'عمل فني' : 'Artwork'))
 
-    if (selectedType) result = result.filter((loc: any) => loc.locationType && loc.locationType.trim().toLowerCase() === selectedType.trim().toLowerCase())
+      // merge and remove duplicates by id
+      const combined = [...cityLocations, ...nonArtworkLocations]
+      const uniqueLocations = Array.from(new Map(combined.map((loc: any) => [loc.id, loc])).values())
+
+      result = uniqueLocations
+    }
+    if (selectedType) {
+      result = result.filter((loc: any) => loc.locationType && loc.locationType.trim().toLowerCase() === selectedType.trim().toLowerCase())
+    }
 
     return result
-  }, [selectedCity, selectedType, allLocations])
+  }, [selectedCity, selectedType, allLocations, locale])
 
   return {
     selectedCity,

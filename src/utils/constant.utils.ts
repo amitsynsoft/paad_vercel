@@ -1,7 +1,19 @@
+export const themeBProgressBarMap = {
+  biennial: '#51d0ff',
+  manar: '#a49ef7',
+  'abu-dhabi': '#a49ef7',
+}
+
 export const languagesOptions = [
   { value: 'en', label: 'English' },
   { value: 'ar', label: 'Arabic' },
 ]
+
+export const placeholderImage = '/images/manar/placeholder.svg'
+export const placeholderImageLoading = '/images/manar/image-loading.svg'
+
+export const placeholderImageBiennial = '/images/biennial/placeholder.svg'
+export const placeholderImageLoadingBiennial = '/images/biennial/image-loading.svg'
 
 export const ORG_CONFIG = {
   Manar: {
@@ -22,3 +34,6 @@ export const ORG_CONFIG = {
 } as const
 
 export type OrgKey = keyof typeof ORG_CONFIG
+
+export const MANAR_GUIDEBOOK_URL = 'https://resources.dct.gov.ae/publicart/media/ixrjienm/manar-abu-dhabi-guidebook-2025-2026-new.pdf'
+export const MANAR_MEDIA_RESOURCES_URL = `https://drive.google.com/drive/folders/1v9Y9A3B2H1cY2-GzSpLZDtu_Tj3kK0LB`

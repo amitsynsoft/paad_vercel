@@ -4,7 +4,7 @@ export type ArtistProfileProps = {
   residence: string
   tags: string[]
   imageUrl: string
-  description: React.ReactNode // Using React.ReactNode for rich text in bio
-  backLinkUrl: string
+  description: React.ReactNode
   workPlace: string
+  markdown: string
 }

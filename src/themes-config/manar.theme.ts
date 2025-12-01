@@ -1,5 +1,6 @@
 export const manarTheme = {
   manarLight: {
+    extend: 'light',
     colors: {
       default: {
         foreground: '#000',

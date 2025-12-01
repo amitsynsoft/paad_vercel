@@ -17,7 +17,14 @@ export const extendedApi = api.injectEndpoints({
         }
       },
     }),
+
+    getFilterOptions: builder.query<any, { locale: string; type: string; orgName: string }>({
+      query: ({ locale, type, orgName }) => ({
+        url: `/Common/GetFilterOptions/news_list?locale=${locale}&organizationName=${orgName}&type=${type}`,
+        headers: { hideSuccessToast: 'true' },
+      }),
+    }),
   }),
 })
 
-export const { useUploadFileMutation } = extendedApi
+export const { useUploadFileMutation, useGetFilterOptionsQuery } = extendedApi

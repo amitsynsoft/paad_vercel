@@ -1,26 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import { getLocale } from 'next-intl/server'
 import { ABCDiatypeFont } from '@/config/fonts'
 import { NextIntlClientProvider } from 'next-intl'
 import 'swiper/css'
-import './globals.css'
 import 'swiper/css/pagination'
+import './globals.css'
 
-import ScrollToTop from '@/_components/_globalUI/ScrollToTop'
+import ScrollToTop from '@/_components/_globalUI/scroll-top/ScrollToTop'
+import ProviderBProgressBar from '@/providers/bprogress-bar/ProviderBProgressBar'
 import { ProviderHeroUI } from '@/providers/heroui/ProviderHeroUI'
 import { DirectionProvider } from '@/context/direction-provider/DirectionProvider.context'
 import { ReduxProvider } from '@/providers/redux/ReduxProvider'
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-})
+import { getDirection } from '@/utils'
+import PathnameListener from '@/_components/_globalUI/pathname-listener/PathnameListener.component'
 
 export const metadata: Metadata = {
-  title: 'PAAD AE - Dynamic Theming App',
-  description: 'A Next.js application with dynamic theming support for multiple routes',
+  title: 'PAAD AE - Manar Abu Dhabi',
+  description: 'Manar Abu Dhabi',
 }
 
 export default async function RootLayout({
@@ -31,13 +27,16 @@ export default async function RootLayout({
   const locale = await getLocale()
 
   return (
-    <html className={`antialiased`} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <body className={`${inter.variable} ${ABCDiatypeFont.variable} antialiased`} suppressHydrationWarning={true}>
+    <html className={`antialiased`} lang={locale} dir={getDirection(locale)}>
+      <body className={`${ABCDiatypeFont.variable} antialiased`} suppressHydrationWarning={true}>
         <ReduxProvider>
           <NextIntlClientProvider locale={locale}>
+            <PathnameListener />
             <DirectionProvider>
               <ScrollToTop />
-              <ProviderHeroUI>{children}</ProviderHeroUI>
+              <ProviderHeroUI>
+                <ProviderBProgressBar>{children}</ProviderBProgressBar>
+              </ProviderHeroUI>
             </DirectionProvider>
           </NextIntlClientProvider>
         </ReduxProvider>

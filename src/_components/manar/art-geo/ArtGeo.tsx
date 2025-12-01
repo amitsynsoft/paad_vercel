@@ -5,8 +5,9 @@ import { useLocale } from 'next-intl'
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker, OverlayView } from '@react-google-maps/api'
 
-import ImageGuard from '../_ui/image-guard/ImageGuard.component'
+import ImageGuard from '../../_globalUI/image-guard/ImageGuard.component'
 import { ManarButton } from '../_ui/buttons/ManarButton'
+import { mapOptions, placeholderImageLoading } from '@/utils'
 
 const containerStyle = {
   width: '100%',
@@ -75,7 +76,7 @@ export default function ArtGeo({ isButtonFilter = true, locationData }: { isButt
           mapContainerStyle={containerStyle}
           center={defaultCenter}
           zoom={10}
-          options={{ mapTypeControl: false }}
+          options={mapOptions}
           onLoad={(map) => {
             mapRef.current = map
             if (selectedCity === (locale === 'ar' ? 'الكل' : 'All')) {
@@ -98,9 +99,9 @@ export default function ArtGeo({ isButtonFilter = true, locationData }: { isButt
             const isHovered = hoveredMarkerId === loc?.id
 
             const getMarkerIcon = () => {
-              if (isSelected) return '/images/Manar-star-01-primary.svg'
-              if (isHovered) return '/images/Manar-star-01-primary.svg'
-              return '/images/ic_map-white.svg'
+              if (isSelected) return '/images/manar/Manar-star-01-primary.svg'
+              if (isHovered) return '/images/manar/Manar-star-01-primary.svg'
+              return '/images/manar/ic_map-white.svg'
             }
 
             return (
@@ -132,7 +133,7 @@ export default function ArtGeo({ isButtonFilter = true, locationData }: { isButt
                         </div>
                       </div>
                       <div className="relative h-[180px] w-full">
-                        <ImageGuard src={selected?.location?.artwork?.images?.[0]?.card?.url} alt="image" fill />
+                        <ImageGuard src={selected?.location?.artwork?.images?.[0]?.card?.url} alt="image" fill placeholder="blur" blurDataURL={placeholderImageLoading} />
                       </div>
 
                       <div className="flex justify-start">
@@ -140,7 +141,7 @@ export default function ArtGeo({ isButtonFilter = true, locationData }: { isButt
                           href={`https://www.google.com/maps/dir/?api=1&origin=my+location&destination=${selected?.location?.lat},${selected?.location?.lon}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-medium text-white border-2 border-white rounded-full px-4 py-1 cursor-pointer"
+                          className="text-white border-2 border-white rounded-full px-4 py-1 cursor-pointer"
                         >
                           Directions
                         </a>

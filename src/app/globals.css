@@ -5,14 +5,14 @@
 :root {
   --font-abcdiatype: var(--font-abcdiatype);
 
-  --text-sm: 15px;
-  --text-sm--line-height: 1.2;
+  --text-manar-sm: 15px;
+  --text-manar-sm--line-height: 1.2;
 
-  --text-base: 20px;
-  --text-base--line-height: 1.2;
+  --text-manar-base: 20px;
+  --text-manar-base--line-height: 1.2;
 
-  --text-lg: 40px;
-  --text-lg--line-height: 1.3;
+  --text-manar-lg: 40px;
+  --text-manar-lg--line-height: 1.3;
 }
 
 /* Responsive overrides */
@@ -20,52 +20,28 @@
 /* For screen <= 1366px */
 @media (max-width: 1300px) {
   :root {
-    --text-base: 18px;
-    --text-base--line-height: 1.4;
+    --text-manar-base: 18px;
+    --text-manar-base--line-height: 1.4;
 
-    --text-lg: 30px;
-    --text-lg--line-height: 1.3;
+    --text-manar-lg: 30px;
+    --text-manar-lg--line-height: 1.3;
   }
 }
-
-/* For screen <= 1024px */
-/* @media (max-width: 1024px) {
-  :root {
-    --text-base: 17px;
-    --text-lg: 28px;
-  }
-} */
-
-/* For screen <= 768px */
-/* @media (max-width: 768px) {
-  :root {
-    --text-base: 16px;
-    --text-lg: 24px;
-  }
-} */
-
-/* For screen <= 480px */
-/* @media (max-width: 480px) {
-  :root {
-    --text-base: 15px;
-    --text-lg: 20px;
-  }
-} */
 
 /* Optional helper classes */
-.text-sm {
-  font-size: var(--text-sm);
-  line-height: var(--text-sm--line-height);
+.manar .text-sm {
+  font-size: var(--text-manar-sm);
+  line-height: var(--text-manar-sm--line-height);
 }
 
-.text-base {
-  font-size: var(--text-base);
-  line-height: var(--text-base--line-height);
+.manar .text-base {
+  font-size: var(--text-manar-base);
+  line-height: var(--text-manar-base--line-height);
 }
 
-.text-lg {
-  font-size: var(--text-lg);
-  line-height: var(--text-lg--line-height);
+.manar .text-lg {
+  font-size: var(--text-manar-lg);
+  line-height: var(--text-manar-lg--line-height);
 }
 
 /* Utility styles */
@@ -81,6 +57,10 @@
   overflow: unset !important;
 }
 
+.swiper-main-news .newsSwiper {
+  overflow: unset !important;
+}
+
 /* .swiper-main .artistSwiper .swiper-slide {
   min-width: 320px !important;
 } */
@@ -89,4 +69,66 @@
   header {
     padding-inline: 0px !important;
   }
+}
+
+/* Autofill overrides to keep primary text color and transparent backgrounds */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: var(--nextui-colors-primary) !important;
+  caret-color: var(--nextui-colors-primary);
+  background-color: transparent !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  transition:
+    background-color 9999s ease-out,
+    color 9999s ease-out;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--nextui-colors-primary) !important;
+}
+
+/* Firefox */
+input:-moz-autofill,
+textarea:-moz-autofill,
+select:-moz-autofill {
+  color: var(--nextui-colors-primary) !important;
+  caret-color: var(--nextui-colors-primary);
+  background-color: transparent !important;
+  box-shadow: inset 0 0 0 1000px transparent;
+}
+
+/* ========================== ✅ Event date green border ======================== */
+/* Event dot indicator */
+[data-slot='grid-wrapper'] .event-date {
+  position: relative;
+}
+
+[data-slot='grid-wrapper'] .event-date:after {
+  content: '';
+  background-color: #8ae842;
+  border-radius: 4px;
+  width: 10px;
+  height: 4px;
+  position: absolute;
+  bottom: 1px; /* adjust vertical placement */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #8ae842; /* Tailwind green-600 */
+  border-radius: 50%;
+}
+
+[data-slot='grid-wrapper'] .event-date:hover::after {
+  background-color: #8ae842; /* lighter green */
+}
+
+/* biennial */
+.overlay-img-artist {
+  background-image: url('/images/biennial/bg-artist-card.webp');
+  background-size: cover;
+  background-position: center;
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import { getLocale } from 'next-intl/server'
 
-import PageRender from '@/_pageRender'
-import { getLandingPage } from '@/services/biennial/getLandingPage'
+import PageRender from '@/pageRender'
+import { getLandingPage } from '@/services/biennial/landing/getLandingPage'
 import { LandingRegistry } from '@/_registry/biennial/landing.registry'
 
 export default async function page() {

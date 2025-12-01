@@ -7,9 +7,13 @@ export interface AboutPageDTO {
   slug?: string
   seo?: SEOData
   components?: PageComponent[]
+  button?: {
+    label?: string
+    url?: string
+  }
 }
 
-export type PageComponent = PageBannerComponent | VideoContentBlockComponent | MarkdownRendererComponent | InfoContentListComponent
+export type PageComponent = PageBannerComponent | VideoContentBlockComponent | MarkdownRendererComponent | InfoContentListComponent | ContentViewComponent | SimpleTitleBlockComponent | ButtonBlockComponent
 
 type ImageData = {
   url: string
@@ -60,6 +64,12 @@ type MarkdownRendererComponent = {
   markdown: string
 }
 
+type ButtonBlockComponent = {
+  component: 'button-block'
+  label?: string
+  url?: string
+}
+
 type SocialPlatforms = {
   instagram?: string
   facebook?: string
@@ -82,6 +92,16 @@ type InfoContentItem = {
   socialPlatforms?: SocialPlatforms
 }
 
+type ContentViewComponent = {
+  component: 'content-view'
+  isActive?: number
+  title?: string
+  markdown?: string
+  images?: {
+    card: ImageData & { caption?: string }
+  }[]
+}
+
 type InfoContentListComponent = {
   component: 'info-content-list'
   isActive?: number
@@ -89,5 +109,13 @@ type InfoContentListComponent = {
   content: InfoContentItem[]
 }
 
-// Export the specific component type for consumers (e.g., React components)
-export type { InfoContentListComponent, MarkdownRendererComponent, VideoContentBlockComponent, PageBannerComponent }
+type SimpleTitleBlockComponent = {
+  component: 'simple-title-block'
+  title: string
+  link?: {
+    label: string
+    url: string
+  }
+}
+
+export type { InfoContentListComponent, MarkdownRendererComponent, VideoContentBlockComponent, PageBannerComponent, ContentViewComponent, SimpleTitleBlockComponent }

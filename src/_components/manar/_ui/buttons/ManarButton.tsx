@@ -5,6 +5,7 @@ export const ManarButton = extendVariants(Button, {
   variants: {
     color: {
       primary: 'rounded-full dark:bg-background dark:text-white',
+      primaryMapButton: 'bg-primary text-white rounded-full dark:bg-background dark:text-white border-[2px] border-primary active:text-white dark:border-background ',
       primaryOutline: `
       text-base 
       border-[2px] 
@@ -48,7 +49,7 @@ export const ManarButton = extendVariants(Button, {
       rounded-full
       text-base
       bg-transparent
-      border-[2px] 
+      border-[3px] 
       border-white 
       hover:bg-white 
       hover:text-primary 
@@ -61,6 +62,9 @@ export const ManarButton = extendVariants(Button, {
       dark:hover:text-primary-foreground
       dark:hover:border-primary
        `,
+      primaryFilled: `border-2 border-primary bg-primary text-white rounded-full dark:bg-primary dark:text-primary-foreground`,
+      primaryFilledOutLine: `border-2 border-primary rounded-full`,
+
     },
     isDisabled: {
       true: 'bg-[#eaeaea] text-black opacity-50 cursor-not-allowed',
@@ -84,12 +88,16 @@ export const ManarButton = extendVariants(Button, {
     },
     {
       isDisabled: true,
+      color: 'primaryOutline',
+    },
+    {
+      isDisabled: true,
       color: 'directionOutlineHover',
       variant: 'bordered',
     },
     {
       isDisabled: true,
-      color: 'primaryOutline',
+      color: 'primaryMapButton',
     },
   ],
 })

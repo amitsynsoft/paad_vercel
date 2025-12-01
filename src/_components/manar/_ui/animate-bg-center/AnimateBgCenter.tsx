@@ -8,10 +8,10 @@ export default function AnimateBackgroundCenter({ children, bgClass }: AnimateBa
   return (
     <div className="relative overflow-hidden w-full group">
       {/* Background sliding from center to top */}
-      <div className={`absolute inset-0 top-1/2 -translate-y-1/2 group-hover:-translate-y-full transition-transform duration-500 ease-in-out ${bgClass}`}></div>
+      <div className={`absolute inset-0 top-1/2 -translate-y-1/2 group-hover:-translate-y-full transition-transform duration-500 ease-in-out ${bgClass} [@media(pointer:coarse)]:translate-y-0`}></div>
 
       {/* Background sliding from center to bottom */}
-      <div className={`absolute inset-0 bottom-1/2 translate-y-1/2 group-hover:translate-y-full transition-transform duration-500 ease-in-out ${bgClass}`}></div>
+      <div className={`absolute inset-0 bottom-1/2 translate-y-1/2 group-hover:translate-y-full transition-transform duration-500 ease-in-out ${bgClass} [@media(pointer:coarse)]:translate-y-0`}></div>
 
       {/* content */}
       <div className="relative z-10">{children}</div>

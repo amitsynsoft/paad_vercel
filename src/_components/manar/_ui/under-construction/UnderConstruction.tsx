@@ -3,26 +3,31 @@
 import { Button } from '@heroui/react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Image from 'next/image'
 import { paths } from '@/navigate/paths'
+import { ManarButton } from '../buttons/ManarButton'
+import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+import { useThemeStore } from '@/zustund-store/useThemeMode.store'
+import ImageGuard from '../../../_globalUI/image-guard/ImageGuard.component'
 
 export default function UnderConstruction() {
+  const t = useTranslations('Manar.UnderConstruction')
+  const { mode } = useThemeStore()
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white text-center">
-      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 120 }}>
-        <Image src="/images/underconstruction.jpg" alt="Under Construction" width={300} height={300} className="object-contain" />
-      </motion.div>
+    <div className="min-h-screen flex flex-col items-center justify-center gap-8 text-center" key={mode}>
+      {/* Circular Loader */}
+      <ImageGuard src={mode === 'dark' ? '/under_construction_white.gif' : '/under_construction.gif'} alt="Under Construction" width={400} height={400} />
 
-      <motion.p initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }} className="text-base text-gray-600">
-        We are currently working hard to bring you something awesome.
-        <br /> Check back soon!
-      </motion.p>
+      {/* Text */}
+      <div className="text-[25px] mb-4">
+        <h1 className="font-bold tracking-wide mb-1">{t('title')}</h1>
+        <p>{t('description')}</p>
+      </div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-6">
-        <Link href={paths.manarHome()}>
-          <Button color="primary">Go Back Home</Button>
-        </Link>
-      </motion.div>
+      {/* Button */}
+      <ManarButton as={Link} href={paths.manarHome()} color="primaryOutlineHover">
+        {t('buttonText')}
+      </ManarButton>
     </div>
   )
 }

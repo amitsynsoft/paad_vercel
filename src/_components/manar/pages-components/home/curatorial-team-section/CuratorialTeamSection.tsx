@@ -12,16 +12,20 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import NextPreviousButton from '@/_components/manar/_ui/carousels/next-previous-buttons/NextPreviousButton'
 import { useThemeStore } from '@/zustund-store/useThemeMode.store'
+import { useScrollToSection } from '@/hooks/scroll-to-hash.hook'
+import { getDirection } from '@/utils'
 
 export default function CuratorialTeamSection({ data }: { data: any }) {
   const locale = useLocale()
   const { mode } = useThemeStore()
+  const typeofslider = 'curatorial'
+  useScrollToSection('#curatorial-team')
   return (
     // <Section>
     //   <div className="flex justify-between mb-8">
     //     <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
     //   </div>
-    //   <div className="grid grid-cols-2 md:grid-cols-4 gap-8" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    //   <div className="grid grid-cols-2 md:grid-cols-4 gap-8" dir={getDirection(locale)}>
     //     {data?.curators?.map((curator: any, index: number) => (
     //       <CuratorialCard key={index} curatorialData={curator} />
     //     ))}
@@ -29,48 +33,22 @@ export default function CuratorialTeamSection({ data }: { data: any }) {
     // </Section>
 
     <Section>
-      <div className="flex justify-between mb-8">
+      <div className="flex justify-between mb-8" id="curatorial-team">
         <h2 className="text-lg text-foreground font-semibold">{data?.title}</h2>
         <div className="flex gap-2 items-center sm:hidden">
-          <NextPreviousButton />
+          <NextPreviousButton typeofslider={typeofslider} />
         </div>
       </div>
 
-      {/* <div dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="swiper-main" dir={getDirection(locale)}>
         <Swiper
           key={locale}
-          dir={locale === 'ar' ? 'rtl' : 'ltr'}
+          dir={getDirection(locale)}
           slidesPerView={1}
           spaceBetween={30}
           navigation={{
-            nextEl: `.swiper-button-next-${mode}`,
-            prevEl: `.swiper-button-prev-${mode}`,
-          }}
-          breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 30 },
-            768: { slidesPerView: 4, spaceBetween: 30 },
-            1024: { slidesPerView: 4, spaceBetween: 30 },
-          }}
-          modules={[Navigation]}
-          className="curatorialSwiper"
-        >
-          {data?.curators?.map((item: any, index: number) => (
-            <SwiperSlide key={index}>
-              <CuratorialCard curatorialData={item} className="hover:bg-warning" />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div> */}
-
-      <div className="swiper-main" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-        <Swiper
-          key={locale}
-          dir={locale === 'ar' ? 'rtl' : 'ltr'}
-          slidesPerView={1}
-          spaceBetween={30}
-          navigation={{
-            nextEl: `.swiper-button-next-${mode}`,
-            prevEl: `.swiper-button-prev-${mode}`,
+            nextEl: `.swiper-button-next-${mode}-${typeofslider}`,
+            prevEl: `.swiper-button-prev-${mode}-${typeofslider}`,
           }}
           breakpoints={{
             640: {
@@ -90,7 +68,7 @@ export default function CuratorialTeamSection({ data }: { data: any }) {
           className="curatorialSwiper"
         >
           {data?.curators?.map((item: any, index: number) => (
-            <SwiperSlide key={`${index} + ${locale}`} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+            <SwiperSlide key={`${index} + ${locale}`} dir={getDirection(locale)}>
               <CuratorialCard curatorialData={item} />
             </SwiperSlide>
           ))}
